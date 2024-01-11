@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:21:40 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/09 19:33:28 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:30:05 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 int	ft_toupper(int c)
 {
 	if (c >= 65 && c <= 90)
-		return (c + 32);
+		return (c - 32);
 	return (c);
 }
 
-int	main()
+/*int	main()
 {
 	int	c;
 
 	c = 'A';
 	printf(" %c \n", ft_toupper(c));
 	return (0);
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:12:25 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/09 16:55:05 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:39:48 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 /*int main()
 {
 	char	str[] = "It`s just a copy";
-	char	dest[20];
+	char	dest[];
 
-	ft_memmove(dest, str, 20);
+	ft_memmove(dest, str, 4);
 	printf("What it is? %s\n", dest);
+	memmove(dest, str, 5);
+	printf("The original %s \n", dest);
 	return(0);
 }*/
