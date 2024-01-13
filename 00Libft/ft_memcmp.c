@@ -6,48 +6,53 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:48:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/11 19:40:41 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/13 14:19:20 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*Compara bytes de memoria entre string en vez de el contenido de estas string,
- * es decir, compara bloques de memoria sin
-interpretar su contenido como cadenas de char. Devuelve un entero que indica 
-la relación entre los bloques de memoria comparados. 
-Puede ser negativo si el primer bloque es menor, positivo si el primer bloque 
-es mayor o cero si son iguales. El parámetro n, en este caso es el tamaño de 
+ * es decir, compara bloques de memoria sin interpretar su contenido como 
+ * cadenas de char. Devuelve un entero que indica la relación entre los bloques 
+ * de memoria comparados. Puede ser negativo si el primer bloque es menor, 
+ * positivo si el primer bloque es mayor o cero si son iguales. El parámetro n, 
+ * en este caso es el tamaño de 
 bytes a comparar en vez de nº máx char como en strncmp*/
 
+#include <stdio.h>
 #include <string.h>
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    const unsigned char	*ptr_s1;
-    const unsigned char	*ptr_s2;
-    size_t				i;
+	const unsigned char	*ptr_s1;
+	const unsigned char	*ptr_s2;
+	size_t				i;
 
 	ptr_s1 = s1;
 	ptr_s2 = s2;
 	i = 0;
-	while (i < n 
+	while (*ptr_s1 == *ptr_s2 && i < n)
 	{
-		if (*ptr_s1 == *ptr_s2 && *ptr_s1 != '\0' && *ptr_s2 != '\0')
-			i++;
-
-	}
-}
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-	{
+		ptr_s1++;
+		ptr_s2++;
 		i++;
 	}
-	if (i >= n)
+	if (i == n)
 		return (0);
 	else
-		return (s1[i] - s2[i]);
+		return (*ptr_s1 - *ptr_s2);
 }
+
+/*int	main()
+{
+	const char	str1[] = "Oslo";
+	const char	str2[] = "Osla";
+	const char	str3[] = "Osos";
+	int		x;
+	int		y;
+
+	x = ft_memcmp(str1, str2, 4);
+	printf("R1 %d\n", x);
+	y = ft_memcmp(str1, str3, 4);
+	printf("R2 %d\n", y);
+	return (0);
+}*/

@@ -6,13 +6,14 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:12:15 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/08 19:28:51 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/13 14:20:29 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//void *memcpy(void *dest, const void *src, size_t n)
+
 #include <string.h>
 
-//void *memcpy(void *dest, const void *src, size_t n)
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
 	unsigned char		*ptr_dst;
@@ -23,7 +24,7 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	ptr_dst = dst;
 	i = 0;
 	if (dst == NULL || src == NULL)
-		return(NULL);
+		return (NULL);
 	while (i < n)
 	{
 		ptr_dst[i] = ptr_src[i];

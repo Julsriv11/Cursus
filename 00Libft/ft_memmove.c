@@ -6,9 +6,15 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:12:25 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/11 19:39:48 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:24:34 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*El primer if verifica si hay superposición de memoria, que sí la hay, la copia
+ * comienza por el final para evitar sobreescribir datoas antes de que se 
+ * copien. Esta condición verifica si dst está después de src pero antes del 
+ * final de src + len. Si esta condición es verdadera, significa que hay 
+ * una superposición.*/
 
 #include <stdio.h>
 #include <string.h>
