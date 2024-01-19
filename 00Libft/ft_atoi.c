@@ -1,5 +1,5 @@
 /*Preguntar si hay que manejar máximo y que tipo de int*/
-#include <<stdlib.h>
+#include <stdlib.h>
 
 int	ft_atoi(const char *str)
 {
@@ -17,7 +17,7 @@ int	ft_atoi(const char *str)
 			str++;
 		if (*str == '-')
 		{
-			signo = -1;
+			sign = -1;
 			str++;
 		}
 		else if (*str == '+')
