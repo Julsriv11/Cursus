@@ -32,6 +32,6 @@ void	ft_memset(void *b, int c, size_t len)
 {
     char str[] = "Hasta luego Maricarmen";
     ft_memset(str, 'a', 3);
-    printf("%s", str);
+    printf("%s \n", str);
     return (0);
 }*/

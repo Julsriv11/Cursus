@@ -1,45 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/21 14:47:37 by jarias-i          #+#    #+#             */
+/*   Updated: 2024/01/21 17:57:57 by jarias-i         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 
-size_t  ft_strlen(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	len;
+	char	*subs;
+	size_t	size;
+	size_t	i;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
-
-char *ft_substr(char const *s, unsigned int start, size_t len)
-{
-    char    *subs;
-    size_t  size;
-    size_t  j;
-
-    size = ft_strlen(s);
-    j = 0;
-    if (!s)
-        return (NULL);
-    if (start >= size)
-    {
-        subs = (char *)malloc(1);
+	size = ft_strlen(s);
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (start >= size)
+	{
+		subs = (char *)malloc(1);
 		if (subs == NULL)
 			return (NULL);
 		subs[0] = '\0';
 		return (subs);
-    }
-    subs = (char *)malloc(len + 1);
-    if (!subs)
-        return (NULL);
-    while (j < len && s[start] != '\0')
-    {
-        subs[j] = s[start];
-        j++;
-        start++;
-    }
-    subs[j] = '\0';
-    return (subs);
+	}
+	subs = (char *)malloc(len + 1);
+	if (!subs)
+		return (NULL);
+	while (i < len && s[start] != '\0')
+		subs[i++] = s[start++];
+	subs[i] = '\0';
+	return (subs);
 }
 
 int main()

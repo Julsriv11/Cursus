@@ -20,7 +20,7 @@ nos permite cambiar donde apunta el parámetro
 pero no el CONTENIDO de la cadena. Si se encuentra el carácter, devuelve un 
 puntero a la posición actual de la cadena (s). 
 La conversión a (char *) se realiza para que coincida con el tipo de retorno 
-de la función.*/
+de la función, es decir, se castea.*/
 
 #include <stdio.h>
 #include <string.h>

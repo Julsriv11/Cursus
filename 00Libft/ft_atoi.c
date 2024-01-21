@@ -1,37 +1,39 @@
-/*Preguntar si hay que manejar máximo y que tipo de int*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/21 17:00:00 by jarias-i          #+#    #+#             */
+/*   Updated: 2024/01/21 17:15:33 by jarias-i         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 int	ft_atoi(const char *str)
 {
-	long long unsigned	x;
-	long long unsigned	max;	
-	int			sign;
+	long	x;
+	long	sign;
+	int		i;
 
 	x = 0;
 	sign = 1;
-	max = 9223372036854775807;
-	while (*str != '\0')
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		while (*str == ' ' || *str  == ' ' || *str == '\f' || *str == '\n' || 
-			*str == '\r' || *str == '\t' || *str == '\v')
-			str++;
-		if (*str == '-')
-		{
+		if (str[i] == '-')
 			sign = -1;
-			str++;
-		}
-		else if (*str == '+')
-			str++;
-		while (*str >= 48 && *str <= 57)
-		{
-			x = 10 * x + (*str - '0');
-			if (x > max && sign == 1)
-				return (-1);
-			if (x > max + 1 && sign == -1)
-				return (0);
-			str++;
-		}
-		break;
+		i++;
+	}
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		x = 10 * x + str[i] - '0';
+		i++;
 	}
 	return (sign * x);
 }

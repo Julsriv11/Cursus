@@ -6,13 +6,13 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:29:08 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/08 19:31:34 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/21 14:59:48 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t  ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	int	len;
 

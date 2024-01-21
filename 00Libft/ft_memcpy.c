@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//void *memcpy(void *dest, const void *src, size_t n)
 
 #include <string.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*ptr_dst;
 	const unsigned char	*ptr_src;
