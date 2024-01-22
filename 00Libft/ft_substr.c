@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -29,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		if (subs == NULL)
 			return (NULL);
 		subs[0] = '\0';
-		return (subs);
+		return (NULL);
 	}
 	subs = (char *)malloc(len + 1);
 	if (!subs)
@@ -40,7 +41,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (subs);
 }
 
-int main()
+/*int main()
 {
     char    *str = "Comienza: aquí estamos";
     char    *nueva;
@@ -48,4 +49,4 @@ int main()
     nueva = ft_substr(str, 10, 14);
     printf("%s \n", nueva);
     return (0);
-}
+}*/

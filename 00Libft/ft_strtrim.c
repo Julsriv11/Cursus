@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*int main()
 {
     char    *str = "usualJust feminist peopleusual";
-    char    *avoid = "usual";
+    char    *avoid = "lausu";
     char    *result;
     
     result = ft_strtrim(str, avoid);
