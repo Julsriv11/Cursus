@@ -21,89 +21,92 @@
 
 static int ft_count_w(char const *s, char c)
 {
-	unsigned int	i;
-	int            count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (*s != '\0')
 	{
-		if (s[i] == c)
-	   	i++;
-      	else
-		{ 
+		if (*s != c && i == 0)
+	   	{
+			i = 1;
 			count++;
-			while (s[i] && (s[i] != c))
-         		i++;
 		}
+      	else if (*s == c)
+			i = 0;
+		s++;
    }
 	return (count);
 }
 
-static char	*ft_memsubs(const char *s, size_t n)
+static char	*ft_memsubs(const char *s, int ini, int fin)
 {
 	char	*ptr;
-	size_t	i;
-	size_t   len;
+	int		i;
 
 	i = 0;
-	len = ft_strlen(s);
-	if (n > len)
-      n = len;
-	ptr = (char *) malloc(sizeof(char) * n + 1);
-	if (ptr == NULL)
-		return (NULL);
-	while (s[i] != '\0' && i < n)
+	ptr = malloc((fin - ini + 1) * sizeof(char));
+	if (!ptr)
+      return (NULL);
+	while (ini < fin)
 	{
-		ptr[i] = s[i];
+		ptr[i] = s[ini];
 		i++;
+		ini++;
 	}
 	ptr[i] = '\0';
 	return (ptr);
 }
 
-static void	ft_freedom(char **str)
+static void	*ft_freedom(char **str, int count)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != NULL)
+	while (i < count)
 	{
 		free(str[i]);
 		i++;
 	}
 	free(str);
+	return (NULL);
+}
+
+static void ft_start_iti(size_t *i, int *j, int *k)
+{
+	*i = 0;
+	*j = 0;
+	*k = -1;
 }
 
 char    **ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
 	char	**result;
 	size_t	len;
+	size_t	i;
+	int		j;
+	int		k;
 
-	i = 0;
-	k = 0;
 	len = ft_strlen(s);
+	ft_start_iti(&i, &j, &k);
 	result = (char **)malloc(sizeof(char*) * (ft_count_w(s, c) + 1));
 	if (!result)
 		return (NULL);
-	while (i < len)
+	while (i <= len)
 	{
-		while (s[i] == c)
-         i++;
-		j = i;
-		while (s[i] && (s[i] != c))
-			i++;
-		if (i > j)
+		if (s[i] != c && k < 0)
+			k = i;
+		else if (s[i] == c || i == len)
 		{
-         result[k] = ft_memsubs(s + j, i - j);
-         k++;
-      }
+			result[j] = ft_memsubs(s, k, i);
+			if (!(result[j]))
+				return (ft_freedom(result, j));
+         k = -1;
+		 j++;
+     	}
+		i++;
 	}
-	result[k] = NULL;
-	ft_freedom(result);
 	return (result);
 }
 
@@ -112,7 +115,6 @@ int main()
     char    *str = "Viento en popa, a toda vela, no corta el mar, sino vuela";
     char    del = ',';
    	char     **own;
-	//char     *token;
 	int		i = 0;
 
    	own = ft_split(str, del);
@@ -122,12 +124,5 @@ int main()
 		printf("%s \n", own[i]);
 		i++;
 	}
-	/*token = strtok((char *)str, &del);
-	printf("Manual:\n");
-	while (token[i] != NULL)
-	{
-		printf("%s\n", token[i]);
-		i++;
-	}*/
 	return (0);
 }
