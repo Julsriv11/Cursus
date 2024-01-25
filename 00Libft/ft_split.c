@@ -112,16 +112,25 @@ char    **ft_split(char const *s, char c)
 
 int main()
 {
-    char    *str = "Viento en popa, a toda vela, no corta el mar, sino vuela";
+    char    *str = "Viento en popa,a toda vela,no corta el mar,sino vuela";
     char    del = ',';
+	char    sep = ',';
    	char     **own;
 	int		i = 0;
+	char	*man;
 
    	own = ft_split(str, del);
 	printf("Propia:\n");
 	while (own[i] != NULL)
 	{
 		printf("%s \n", own[i]);
+		i++;
+	}
+	man = strtok(str, sep);
+	printf("Man:\n");
+	while (man != NULL)
+	{
+		printf("%s \n", man);
 		i++;
 	}
 	return (0);

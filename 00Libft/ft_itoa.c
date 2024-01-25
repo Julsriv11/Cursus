@@ -29,10 +29,8 @@ static char *ft_mem_n(int len)
 
     mem = malloc((len + 1) * sizeof(char));
     if (!mem)
-    {
         return (NULL);
-    }
-    mem[0] = '\0';
+    mem[len] = '\0';
     return (mem);
 }
 
@@ -51,23 +49,22 @@ char    *ft_itoa(int n)
     if (nbr < 0)
         nbr = -nbr;
     i = len - 1;
-    if (nbr != 0)
+    if (nbr == 0)
+        str[i] = '0';
+    while (nbr != 0)
     {
         str[i] = ((nbr % 10) + 48);
         nbr = nbr / 10;
         i--;
     }
     if (n < 0)
-    {
         str[0] = '-';
-        str[len] = 0;
-    }
     return (str);
 }
 
 int main()
 {
-    int x = 234;
+    int x = 321958627;
 
     printf("%s\n", ft_itoa(x));
     return (0);
