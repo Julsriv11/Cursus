@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:06:32 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/22 18:08:47 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:40:51 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,12 @@ char    **ft_split(char const *s, char c)
 
 int main()
 {
-    char    *str = "Viento en popa,a toda vela,no corta el mar,sino vuela";
+    char    *str = "Viento en popa, a toda vela, no corta el mar, sino vuela";
     char    del = ',';
-	char    sep = ',';
+	//char    sep = ',';
    	char     **own;
 	int		i = 0;
-	char	*man;
+	//char	*man;
 
    	own = ft_split(str, del);
 	printf("Propia:\n");
@@ -126,12 +126,12 @@ int main()
 		printf("%s \n", own[i]);
 		i++;
 	}
-	man = strtok(str, sep);
+	/*man = strtok(str, sep);
 	printf("Man:\n");
 	while (man != NULL)
 	{
 		printf("%s \n", man);
 		i++;
-	}
+	}*/
 	return (0);
 }

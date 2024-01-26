@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:53:55 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/21 18:21:59 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/01/26 11:33:52 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*second = "sesamo";
 	char	*first = "Abrete ";
 
 	printf("Contraseña: %s \n", ft_strjoin(first, second));
 	return (0);
-}
+}*/

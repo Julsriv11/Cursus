@@ -20,6 +20,8 @@ void	ft_bzero(void *s, size_t n)
 
 	ptr = s;
 	i = 0;
+	if (n == 0)
+		return;
 	while (i < n)
 	{
 		ptr[i] = (unsigned char) 48;

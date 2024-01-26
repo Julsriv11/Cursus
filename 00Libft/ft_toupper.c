@@ -18,7 +18,7 @@
 
 int	ft_toupper(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'a' && c <= 'z')
 		return (c - 32);
 	return (c);
 }
