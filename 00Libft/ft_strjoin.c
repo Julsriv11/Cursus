@@ -44,8 +44,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 /*int	main(void)
 {
-	char	*second = "sesamo";
-	char	*first = "Abrete ";
+	char	*second = "pilotes";
+	char	*first = "Hostia ";
 
 	printf("Contraseña: %s \n", ft_strjoin(first, second));
 	return (0);
