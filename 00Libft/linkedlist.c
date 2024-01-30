@@ -22,14 +22,21 @@ void insert_end(Nodo **root, int value)
      curr->next = new_nodo;
 }
 
+void insert_beginning(Nodo **root, int z)
+{
+     Nodo *newone = malloc(sizeof(Nodo));
+
+     newone->x = z;
+     newone->next = *root;
+     *root = newone;
+}
+
 int main()
 {
      Nodo *root = malloc(sizeof(Nodo));
 
-     root->x = 15;
-     root->next = NULL;
-     insert_end(&root, -2);
-     insert_end(&root, -11);
+     root->x = 21;
+     insert_beginning(&root, 11);
      Nodo *curr = root;
      while (curr != NULL)
      {    

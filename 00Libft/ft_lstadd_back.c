@@ -4,9 +4,8 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 {
     t_list  *back;
     
-    back = malloc(sizeof(t_list));
-    if (!back)
-        return (NULL);
-    back->next = NULL;
-    back->content = new;
+    back = ft_lstlast(*lst);
+    if(!back)
+        *lst = new;
+    back->next = new;
 }
