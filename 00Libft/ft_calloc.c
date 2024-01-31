@@ -22,21 +22,6 @@
 
 #include <stdlib.h>
 
-void	ft_memset(void *b, int c, size_t len)
-{
-	char	*ptr;
-	size_t	i;
-
-	ptr = (char *)b;
-	i = 0;
-	while (i < len)
-	{
-		*ptr = (unsigned char)c;
-		ptr++;
-		i++;
-	}
-}
-
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*x;

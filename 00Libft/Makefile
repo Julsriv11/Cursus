@@ -45,8 +45,15 @@ SRC = ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c
-
 OBJS = $(SRC:.c=.o)
+
+BONUS_SRC = ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c 
+BONUS_OBJS = $(BONUS_SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
@@ -58,6 +65,12 @@ $(NAME): $(OBJS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 all: $(NAME)
+bonus: $(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)
+
+%.o : %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
 clean:
 	$(RM) $(OBJS)
 

@@ -32,7 +32,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 /*int	main()
 {
 	char	str[] = "Lyon king and bambi";
-	char	dst[10];
+	char	dst[16];
 	size_t	len;
 
 	len = ft_strlcpy(dst, str, sizeof(dst));

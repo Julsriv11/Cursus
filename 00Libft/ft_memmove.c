@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 /*El primer if verifica si hay superposición de memoria, que sí la hay, la copia
- * comienza por el final para evitar sobreescribir datoas antes de que se 
+ * comienza por el final para evitar sobreescribir datos antes de que se 
  * copien. Esta condición verifica si dst está después de src pero antes del 
  * final de src + len. Si esta condición es verdadera, significa que hay 
  * una superposición.*/
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <string.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
@@ -51,11 +51,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 /*int main()
 {
 	char	str[] = "It`s just a copy";
-	char	dest[];
+	char	dest[5];
 
 	ft_memmove(dest, str, 4);
 	printf("What it is? %s\n", dest);
-	memmove(dest, str, 5);
+	memmove(dest, str, 4);
 	printf("The original %s \n", dest);
 	return(0);
 }*/

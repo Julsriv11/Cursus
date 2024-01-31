@@ -21,32 +21,41 @@
 
 static int ft_count_w(char const *s, char c)
 {
-	unsigned int 	i;
-	int				count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
-	while (s[i])
+	while (*s != '\0')
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
+		if (*s != c && i == 0)
+	   	{
+			i = 1;
 			count++;
-		while (s[i] && (s[i] != c))
-			i++;
-	}
+		}
+      	else if (*s == c)
+			i = 0;
+		s++;
+   }
 	return (count);
 }
 
-static char	*ft_memsubs(const char *s, size_t len)
+static char	*ft_memsubs(const char *s, int ini, int fin)
 {
 	char	*ptr;
+	int		i;
 
-	ptr = (char *)malloc(sizeof(char) * len + 1);
+	i = 0;
+	ptr = malloc((fin - ini + 1) * sizeof(char));
 	if (!ptr)
       return (NULL);
-	ptr = ft_memmove(ptr, s, len);
-	ptr[len] = '\0';
+	while (ini < fin)
+	{
+		ptr[i] = s[ini];
+		i++;
+		ini++;
+	}
+	ptr[i] = '\0';
 	return (ptr);
 }
 
@@ -74,35 +83,37 @@ static void ft_start_iti(size_t *i, int *j, int *k)
 char    **ft_split(char const *s, char c)
 {
 	char	**result;
-	int	i;
+	size_t	len;
+	size_t	i;
 	int		j;
 	int		k;
 
+	len = ft_strlen(s);
 	ft_start_iti(&i, &j, &k);
 	result = (char **)malloc(sizeof(char*) * (ft_count_w(s, c) + 1));
 	if (!result)
 		return (NULL);
-	while (s[i])
+	while (i <= len)
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
+		if (s[i] != c && k < 0)
+			k = i;
+		else if (s[i] == c || i == len)
 		{
-			result[k] = ft_memsubs(s + j, i - j);
-			k++;
+			result[j] = ft_memsubs(s, k, i);
+			if (!(result[j]))
+				return (ft_freedom(result, j));
+         k = -1;
+		 j++;
      	}
+		i++;
 	}
-	result[k] = ft_freedom(result, k);
 	return (result);
 }
 
 int main()
 {
     char    *str = "Viento en popa, a toda vela, no corta el mar, sino vuela";
-    char    del = ' ';
+    char    del = ',';
 	//char    sep = ',';
    	char     **own;
 	int		i = 0;
