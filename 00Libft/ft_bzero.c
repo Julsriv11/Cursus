@@ -6,12 +6,12 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 17:55:47 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/08 18:17:21 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:47:18 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
-#include <strings.h>
+#include <string.h>
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -21,18 +21,16 @@ void	ft_bzero(void *s, size_t n)
 	ptr = s;
 	i = 0;
 	if (n == 0)
-		return;
+		return ;
 	while (i < n)
-	{
-		ptr[i] = (unsigned char) 48;
-		i++;
-	}
+		ptr[i++] = 0;
 }
 
-/*int main()
+/*int main()/
 {
     char str[] = "xxx rules";
     ft_bzero(str, 3);
     printf("%s\n", str);
+    printf("%s\n", bzero(str, 3));
     return (0);
 }*/

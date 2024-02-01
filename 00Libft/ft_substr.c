@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:47:37 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/21 17:57:57 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:01:56 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		subs = (char *)malloc(1);
 		if (subs == NULL)
 			return (NULL);
-		subs[0] = '\0';
-		return (NULL);
+		subs[0] = 0;
+		return (subs);
 	}
+	if (len > size - start)
+		len = size - start;
 	subs = (char *)malloc(len + 1);
 	if (!subs)
 		return (NULL);

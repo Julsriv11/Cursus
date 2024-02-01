@@ -29,16 +29,18 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s != '\0')
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			return ((char *)s);
 		s++;
 	}
+	if (*s == (char)c)
+		return ((char *)s);
 	return (NULL);
 }
 
 /*int main()
 {
     char    *str = "John Mr Snow";
-    printf ("Who is cool? %s \n", ft_strchr (str, 'M'));
+    printf ("Who is cool? %s \n", ft_strchr (str, ' '));
     return 0;
 }*/

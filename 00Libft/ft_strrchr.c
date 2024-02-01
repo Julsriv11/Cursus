@@ -27,11 +27,11 @@ char	*ft_strrchr(const char *s, int c)
 	last = NULL;
 	while (*s != '\0')
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			last = s;
 		s++;
 	}
-	if (*s == c)
+	if (*s == (char)c)
 		return ((char *)s);
 	return ((char *)last);
 }

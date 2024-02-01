@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:43:24 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/26 11:34:37 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:23:25 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
  * memoria a 0, y si no, devuelve NULL. */
 
 #include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

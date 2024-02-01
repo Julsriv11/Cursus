@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:06:32 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/26 13:40:51 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:34:49 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 #include <string.h>
 #include "libft.h"
 
-static int ft_count_w(char const *s, char c)
+static int	ft_count_w(char const *s, char c)
 {
-	unsigned int 	i;
+	unsigned int	i;
 	int				count;
 
 	i = 0;
@@ -38,16 +38,14 @@ static int ft_count_w(char const *s, char c)
 	return (count);
 }
 
-static char	*ft_memsubs(const char *s, size_t len)
+static size_t	len(const char *s, char c)
 {
-	char	*ptr;
+	size_t	x;
 
-	ptr = (char *)malloc(sizeof(char) * len + 1);
-	if (!ptr)
-      return (NULL);
-	ptr = ft_memmove(ptr, s, len);
-	ptr[len] = '\0';
-	return (ptr);
+	x = 0;
+	while (s && s[x] != '\0' && s[x] != c)
+		x++;
+	return (x);
 }
 
 static void	*ft_freedom(char **str, int count)
@@ -55,7 +53,7 @@ static void	*ft_freedom(char **str, int count)
 	int	i;
 
 	i = 0;
-	while (i < count)
+	while (str && i < count)
 	{
 		free(str[i]);
 		i++;
@@ -64,49 +62,41 @@ static void	*ft_freedom(char **str, int count)
 	return (NULL);
 }
 
-static void ft_start_iti(size_t *i, int *j, int *k)
+char	**ft_split(char const *s, char c)
 {
-	*i = 0;
-	*j = 0;
-	*k = -1;
-}
+	char		**result;
+	size_t		i;
+	size_t		j;
+	size_t		k;
 
-char    **ft_split(char const *s, char c)
-{
-	char	**result;
-	int	i;
-	int		j;
-	int		k;
-
-	ft_start_iti(&i, &j, &k);
-	result = (char **)malloc(sizeof(char*) * (ft_count_w(s, c) + 1));
+	if (!s)
+		return (NULL);
+	k = ft_count_w(s, c);
+	result = ft_calloc(k + 1, sizeof(char *));
 	if (!result)
 		return (NULL);
-	while (s[i])
+	j = -1;
+	while (++j < k)
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
-		{
-			result[k] = ft_memsubs(s + j, i - j);
-			k++;
-     	}
+		i = -1;
+		while (*s == c)
+			s++;
+		result[j] = ft_calloc(len(s, c) + 1, sizeof(char));
+		if (!result[j])
+			ft_freedom(result, j);
+		while (s[++i] != c && s[i] != '\0')
+			result[j][i] = s[i];
+		s += i;
 	}
-	result[k] = ft_freedom(result, k);
 	return (result);
 }
 
-int main()
+/*int main()
 {
-    char    *str = "Viento en popa, a toda vela, no corta el mar, sino vuela";
+    char    *str = "Viento en popa, a toda vela, no corta el mar, sino vuela ";
     char    del = ' ';
-	//char    sep = ',';
-   	char     **own;
+    char     **own;
 	int		i = 0;
-	//char	*man;
 
    	own = ft_split(str, del);
 	printf("Propia:\n");
@@ -115,12 +105,5 @@ int main()
 		printf("%s \n", own[i]);
 		i++;
 	}
-	/*man = strtok(str, sep);
-	printf("Man:\n");
-	while (man != NULL)
-	{
-		printf("%s \n", man);
-		i++;
-	}*/
 	return (0);
-}
+}*/

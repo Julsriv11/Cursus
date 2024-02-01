@@ -12,16 +12,7 @@
 
 #include <unistd.h>
 #include <string.h>
-
-size_t	ft_strlen(const char *s)
-{
-	int	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

@@ -6,32 +6,35 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:29:57 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/08 18:15:13 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:12:35 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
+#include "libft.h"
 
-void	ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*ptr;
-	size_t	i;
+	unsigned char	*ptr;
+	size_t			i;
 
-	ptr = (char *)b;
+	ptr = (unsigned char *)b;
 	i = 0;
 	while (i < len)
 	{
-		*ptr = (unsigned char)c;
-		ptr++;
+		ptr[i] = c;
 		i++;
 	}
+	return (b);
 }
 
 /*int main()
 {
     char str[] = "Hasta luego Maricarmen";
     ft_memset(str, 'a', 3);
-    printf("%s \n", str);
+	printf("%s \n", str);
+	memset(str, 'a', 3);
+	printf("%s \n", str);
     return (0);
 }*/
