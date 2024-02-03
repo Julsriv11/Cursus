@@ -21,36 +21,31 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char		*ptr_dst;
-	const unsigned char	*ptr_src;
+	char		*ptr_dst;
+	char		*ptr_src;
 	size_t				i;
 
-	ptr_dst = dst;
-	ptr_src = src;
-	if (dst > src && dst < src + len)
+	if (!dst && !src)
+		return (NULL);
+	ptr_dst = (char *)dst;
+	ptr_src = (char *)src;
+	i = 0;
+	if (ptr_dst > ptr_src)
 	{
-		i = len;
-		while (i > 0)
-		{
-			ptr_dst[i - 1] = ptr_src[i - 1];
-			i--;
-		}
+		while (len-- > 0)
+			ptr_dst[len] = ptr_src[len];
 	}
 	else
 	{
-		i = 0;
-		while (i < len)
-		{
+		while (i++ < len)
 			ptr_dst[i] = ptr_src[i];
-			i++;
-		}
 	}
 	return (dst);
 }
 
 /*int main()
 {
-	char	str[] = "It`s just a copy";
+	char	str[] = "";
 	char	dest[5];
 
 	ft_memmove(dest, str, 4);

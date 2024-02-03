@@ -21,14 +21,14 @@ bytes a comparar en vez de nº máx char como en strncmp*/
 #include <stdio.h>
 #include <string.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+/*int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*ptr_s1;
 	const unsigned char	*ptr_s2;
 	size_t				i;
 
-	ptr_s1 = s1;
-	ptr_s2 = s2;
+	ptr_s1 = (unsigned char *)s1;
+	ptr_s2 = (unsigned char *)s2;
 	i = 0;
 	while (*ptr_s1 == *ptr_s2 && i < n)
 	{
@@ -39,20 +39,36 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	if (i == n)
 		return (0);
 	else
-		return (*ptr_s1 - *ptr_s2);
+		return ((int)(*ptr_s1 - *ptr_s2));
+}*/
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned char	*ptr_s1;
+	unsigned char 	*ptr_s2;
+	size_t			i;
+
+	ptr_s1 = (unsigned char *)s1;
+	ptr_s2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if ((unsigned char)ptr_s1[i] != (unsigned char)ptr_s2[i])
+			return ((int)(unsigned char)ptr_s1[i] - (unsigned char)ptr_s2[i]);
+		i++;
+	}
+	return (0);
 }
 
 /*int	main()
 {
-	const char	str1[] = "Oslo";
-	const char	str2[] = "Osla";
-	const char	str3[] = "Osos";
+	const char	str1[] = "Oslo hola que tal";
+	const char	str2[] = "Oslo holta que tal";
 	int		x;
 	int		y;
 
-	x = ft_memcmp(str1, str2, 4);
+	x = ft_memcmp(str1, str2, 9);
 	printf("R1 %d\n", x);
-	y = ft_memcmp(str1, str3, 4);
+	y = memcmp(str1, str2, 9);
 	printf("R2 %d\n", y);
 	return (0);
 }*/

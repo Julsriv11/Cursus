@@ -23,3 +23,20 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		back->next = new;
 	new->next = NULL;
 }
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*back;
+
+	if(!lst)
+		return ;
+	if (*lst)
+	{
+		back = *lst;
+		while (back->next)
+			back = back->next;
+		back->next = new;
+	}
+	else
+		*lst = new;
+}
