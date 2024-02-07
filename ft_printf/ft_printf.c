@@ -10,11 +10,9 @@ static int  ft_parameters(va_list args, int j, char *phrase)
     if (phrase[x] == 'c')
         y = ft_putchar(va_arg(args, int));
     else if (phrase[x] == 'i')
-        y = ft_
+        
     else if (phrase[x] == 's')
-    {
-        /* code */
-    }
+        y = ft_putstr(va_arg(args, int));
     else if (phrase[x] == 'p')
 
     else if (phrase[x] == 'd')
