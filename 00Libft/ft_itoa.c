@@ -76,7 +76,7 @@ char	*ft_itoa(int n)
 
 /*int main()
 {
-    int x = 321958627;
+    int x = 0;
 
     printf("%s\n", ft_itoa(x));
     return (0);
