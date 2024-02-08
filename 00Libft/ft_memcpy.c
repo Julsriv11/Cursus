@@ -9,26 +9,8 @@
 /*   Updated: 2024/02/08 12:28:07 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include <string.h>
-
-/*void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned char		*ptr_dst;
-	const unsigned char	*ptr_src;
-	size_t				i;
-
-	if (!dst || !src)
-		return (dst);
-	ptr_src = (unsigned char *)src;
-	ptr_dst = (unsigned char *)dst;
-	i = 0;
-	while (i < n) // no inicializa ningún iterador (n > 0)
-	{
-		ptr_dst[i] = ptr_src[i]; // sería ptr_dst++ = ptr_src++; y n--;
-	}
-	return (ptr_dst);
-}*/
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -44,3 +26,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+
+/*int main()
+{
+	char ini[] = "Esta es una copia";
+	char dest[18];
+
+	printf("%s\n", ft_memcpy(dest, ini, 1));
+	printf("Original %s", memcpy(dest, ini, 1));
+	return 0;
+}*/

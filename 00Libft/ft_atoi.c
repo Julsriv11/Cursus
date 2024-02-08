@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/21 17:15:33 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "libft.h"
 
 int	ft_atoi(const char *str)
@@ -37,3 +37,11 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * x);
 }
+
+/*int main()
+{
+	char num[] = "123456789";
+
+	printf("%d", ft_atoi(num));
+	return 0;
+}*/

@@ -21,26 +21,6 @@ bytes a comparar en vez de nº máx char como en strncmp*/
 #include <stdio.h>
 #include <string.h>
 
-/*int	ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	const unsigned char	*ptr_s1;
-	const unsigned char	*ptr_s2;
-	size_t				i;
-
-	ptr_s1 = (unsigned char *)s1;
-	ptr_s2 = (unsigned char *)s2;
-	i = 0;
-	while (*ptr_s1 == *ptr_s2 && i < n)
-	{
-		ptr_s1++;
-		ptr_s2++;
-		i++;
-	}
-	if (i == n)
-		return (0);
-	else
-		return ((int)(*ptr_s1 - *ptr_s2));
-}*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*ptr_s1;
@@ -66,9 +46,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	int		x;
 	int		y;
 
-	x = ft_memcmp(str1, str2, 9);
+	x = ft_memcmp(str1, str2, 10);
 	printf("R1 %d\n", x);
-	y = memcmp(str1, str2, 9);
+	y = memcmp(str1, str2, 10);
 	printf("R2 %d\n", y);
 	return (0);
 }*/

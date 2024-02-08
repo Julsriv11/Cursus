@@ -61,3 +61,16 @@ int main()
     printf("Funcionada %s\n", str2);
     return (0);
 }*/
+
+/*static char	*examplef(unsigned int i, char *c)
+{
+	printf("Esto hace la función con cada char %u: %c\n", i, *c);
+}
+
+int main()
+{
+	char str[] = "Holiiii chuchiii";
+
+	ft_strmapi(str, &examplef);
+	return 0;
+}*/

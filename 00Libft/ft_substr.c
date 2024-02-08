@@ -45,10 +45,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 /*int main()
 {
-    char    *str = "Comienza: aquí estamos";
+    char    *str = "Se abre el telón: TODO esto debe aparecer";
     char    *nueva;
     
-    nueva = ft_substr(str, 10, 14);
+    nueva = ft_substr(str, 19, 100);
     printf("%s \n", nueva);
     return (0);
 }*/
