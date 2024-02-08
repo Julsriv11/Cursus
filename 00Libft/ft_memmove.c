@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 18:12:25 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/02/01 12:21:15 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:54:13 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
  * final de src + len. Si esta condición es verdadera, significa que hay 
  * una superposición.*/
 
-//#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*ptr_dst;
-	char		*ptr_src;
-	size_t				i;
+	char	*ptr_dst;
+	char	*ptr_src;
+	size_t	i;
 
 	if (!dst && !src)
 		return (NULL);
@@ -37,16 +37,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		while (i++ < len)
+		while (i < len)
+		{
 			ptr_dst[i] = ptr_src[i];
+			i++;
+		}
 	}
 	return (dst);
 }
 
 /*int main()
 {
-	char	str[] = "";
-	char	dest[5];
+	char	str[] = "Esto es una prueba";
+	char	dest[50];
 
 	ft_memmove(dest, str, 4);
 	printf("What it is? %s\n", dest);

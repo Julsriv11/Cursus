@@ -6,7 +6,7 @@
 /*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:48:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/01/13 14:19:20 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:27:00 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ bytes a comparar en vez de nº máx char como en strncmp*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*ptr_s1;
-	unsigned char 	*ptr_s2;
+	unsigned char	*ptr_s2;
 	size_t			i;
 
 	ptr_s1 = (unsigned char *)s1;
