@@ -12,10 +12,8 @@
 
 /*Se puede utilizar malloc. Copia una cadena y le asigna memoria. 
  * Termina en nulo*/
-
+#include <stdio.h>
 #include "libft.h"
-#include <string.h>
-#include <stdlib.h>
 
 char	*ft_strdup(const char *s1)
 {
@@ -34,3 +32,10 @@ char	*ft_strdup(const char *s1)
 	ptr[i] = '\0';
 	return (ptr);
 }
+
+/*int main()
+{
+	char	str[] = "Three little tigers";
+	printf("%s", ft_strdup(str));
+	return 0;
+}*/

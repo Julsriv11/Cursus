@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
 #include "libft.h"
+
+/*char    ft(unsigned int i, char c)
+{
+    return (c + (i + 1));
+}*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -38,20 +40,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (str);
 }
 
-/*char    ft(unsigned int i, char c)
-{   
-    char            *str;
-
-    str[i] = c + 1;
-    return (str[i]);
-}
-
-char    ft(unsigned int i, char c)
-{
-    return (c + (i + 1));
-}
-
-int main()
+/*int main()
 {
     char    *cad = "abcde";
 	char    *str2;
@@ -60,17 +49,4 @@ int main()
 	printf("Original %s\n", cad);
     printf("Funcionada %s\n", str2);
     return (0);
-}*/
-
-/*static char	*examplef(unsigned int i, char *c)
-{
-	printf("Esto hace la función con cada char %u: %c\n", i, *c);
-}
-
-int main()
-{
-	char str[] = "Holiiii chuchiii";
-
-	ft_strmapi(str, &examplef);
-	return 0;
 }*/

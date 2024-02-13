@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -40,4 +38,13 @@ char	*ft_strtrim(char const *s1, char const *set)
     result = ft_strtrim(str, avoid);
     printf("%s \n", result);
     return (0);
+}*/
+
+/*int main()
+{
+	char	*one = "abcdeSOLO QUIERO ESTOabcde";
+	char	*fail = "cabed";
+
+	printf("%s", ft_strtrim(one, fail));
+	return 0;
 }*/

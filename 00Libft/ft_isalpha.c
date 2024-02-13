@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 //comprueba si un int es alfabético o no
-#include <ctype.h>
+#include <stdio.h>
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
@@ -20,3 +21,14 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
+
+/*int main()
+{
+	int	x = '7';
+
+	if (ft_isalpha(x) != 0)
+		printf("Verdadero es %d", ft_isalpha(x));
+	else
+		printf("Falso %d", ft_isalpha(x));
+	return 0;
+}*/

@@ -17,7 +17,7 @@
  * una superposición.*/
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -56,4 +56,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	memmove(dest, str, 4);
 	printf("The original %s \n", dest);
 	return(0);
+}*/
+
+/*int main()
+{
+	char str[] = "Es muuy chuli";
+	char other[30];
+
+	printf("Mi copia %s", ft_memmove(other, str, ft_strlen(str)));
+	return 0;
 }*/

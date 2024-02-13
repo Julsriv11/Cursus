@@ -18,7 +18,7 @@ Esto se actualiza en cada iteración del bucle siempre que se encuentre
 el carácter.*/
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -38,8 +38,8 @@ char	*ft_strrchr(const char *s, int c)
 
 /*int main()
 {
-    char    *str = "John Mr MmSnow";
-    printf ("Who is cool? %s \n", ft_strrchr (str, 'M'));
-    printf("The original %s \n", strrchr(str, 'S'));
-    return 0;
+	char	one[] = "Encuentra la RV o River";
+
+	printf("%s", ft_strrchr(one, 'R'));
+	return 0;
 }*/

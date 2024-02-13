@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include <stdio.h>
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
@@ -19,3 +20,14 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
+
+/*int main()
+{
+	int	x = 'J';
+
+	if (ft_isalnum(x) != 0)
+		printf("Verdadero %d", ft_isalnum(x));
+	else
+		printf("Falso %d", ft_isalnum(x));
+	return 0;
+}*/

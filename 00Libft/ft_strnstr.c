@@ -14,7 +14,7 @@
  * de la primera coincidencia de la subcadena dentro de la cadena*/
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -42,7 +42,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 /*int main()
 {
 	const char	*str = "Wally is in Wallington";
-	const char	*to_find = "Wallington";
+	const char	*to_find = "Wllington";
 	const char	*result;
 	const char	*origin;
 
@@ -56,4 +56,13 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	else
 		printf("Not found\n");
 	return (0);
+}*/
+
+/*int main()
+{
+	char	one[] = "roro";
+	char	two[] = "Found roro in the whole world";
+
+	printf("%s", ft_strnstr(two, one, 50));
+	return 0;
 }*/

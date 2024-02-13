@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
@@ -32,9 +31,10 @@ void	*ft_memset(void *b, int c, size_t len)
 /*int main()
 {
     char str[] = "Hasta luego Maricarmen";
+
     ft_memset(str, 'a', 3);
-	printf("%s \n", str);
+	printf("Test 1 %s \n", str);
 	memset(str, 'a', 3);
-	printf("%s \n", str);
+	printf("Man %s \n", str);
     return (0);
 }*/

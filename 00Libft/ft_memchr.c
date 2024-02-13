@@ -37,7 +37,7 @@ usar void * permite al usuario decidir
 el tipo al que desea castear el resultado según sus necesidades.*/
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

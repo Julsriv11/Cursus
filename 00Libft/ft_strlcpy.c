@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include <string.h>
+#include <stdio.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
@@ -41,4 +41,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	len = strlcpy(dst, str, sizeof(dst));
 	printf("Manual: %zu\n",len);
 	return (0);
+}*/
+
+/*int main()
+{
+	char	*one = "Esternocleidomastoideo";
+	char	end[30];
+
+	printf("%zu", ft_strlcpy(end, one, sizeof(end)));
+	return 0;
 }*/

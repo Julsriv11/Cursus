@@ -23,7 +23,7 @@ La conversión a (char *) se realiza para que coincida con el tipo de retorno
 de la función, es decir, se castea.*/
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -40,7 +40,7 @@ char	*ft_strchr(const char *s, int c)
 
 /*int main()
 {
-    char    *str = "John Mr Snow";
-    printf ("Who is cool? %s \n", ft_strchr (str, ' '));
+    char    *str = "John Mr MSnow";
+    printf("%s \n", ft_strchr (str, 'M'));
     return 0;
 }*/

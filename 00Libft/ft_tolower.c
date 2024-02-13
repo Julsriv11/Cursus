@@ -19,8 +19,7 @@ Si la condición if es falsa (es decir, c no es una letra mayúscula),
 se omite el primer return y se ejecuta el segundo return, devolviendo el valor 
 original de c sin cambios.*/
 
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

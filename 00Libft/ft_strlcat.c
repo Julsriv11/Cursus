@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include <string.h>
+#include <stdio.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -37,11 +37,25 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 /*int	main(void)
 {
 	char	src[9] = "pressure";
-	char	dest[6] = "Blood";
+	char	dest[13] = "Blood";
 	size_t	lon;
 
 	lon = ft_strlcat(dest, src, sizeof(dest));
 	printf("Cadena completa: %s \n", dest);
 	printf("Longitud de cadena: %zu \n", lon);
 	return (0);
+}*/
+
+/*int main()
+{
+	char	*word = "square";
+	char	home[10];
+	size_t	count;
+	size_t	manual;
+
+	count = ft_strlcat(home, word, sizeof(home));
+	printf("%zu\n", count);
+	manual = strlcat(home, word, sizeof(home));
+	printf("%zu\n", manual);
+	return 0;
 }*/

@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 //comprueba si un int es un dígito
-#include <ctype.h>
+#include <stdio.h>
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
@@ -20,3 +21,14 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
+
+/*int main()
+{
+	int	x = '7';
+
+	if (ft_isdigit(x) != 0)
+		printf("Verdadero es %d", ft_isdigit(x));
+	else
+		printf("Falso %d", ft_isdigit(x));
+	return 0;
+}*/

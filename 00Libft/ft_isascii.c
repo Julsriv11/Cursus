@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 //#include <stdio.h>
-#include <ctype.h>
+#include <stdio.h>
+#include "libft.h"
 
 int	ft_isascii(int c)
 {
@@ -20,3 +21,14 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
+
+/*int main()
+{
+	int	x = '7';
+
+	if (ft_isascii(x) != 0)
+		printf("Verdadero es %d", ft_isascii(x));
+	else
+		printf("Falso %d", ft_isascii(x));
+	return 0;
+}*/

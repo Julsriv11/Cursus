@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
 
 static int	ft_n_len(long nbr)
 {
@@ -78,6 +76,6 @@ char	*ft_itoa(int n)
 {
     int x = 0;
 
-    printf("%s\n", ft_itoa(x));
+    printf("%s", ft_itoa(x));
     return (0);
 }*/

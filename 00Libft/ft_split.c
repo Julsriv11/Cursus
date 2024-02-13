@@ -14,9 +14,8 @@
  * acuerdo al tamaño de s. Hacemos dos bucles, un primero para comprobar que
  * va de un separador a otro y sumar i. y otro bucle para comprobar desde un 
  * separador a otro, y que procese la subcadena.*/
-#include <stdlib.h>
+
 #include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 static int	ft_count_w(char const *s, char c)
@@ -106,4 +105,20 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	return (0);
+}*/
+
+/*int main ()
+{
+	char	*one = "Todo,separado,por,palabra";
+	char	**home;
+	char	sep = ',';
+	int		i = 0;
+
+	home = ft_split(one, sep);
+	while (home[i] != '\0')
+	{
+		printf("%s\n", home[i]);
+		i++;
+	}
+	return 0;
 }*/

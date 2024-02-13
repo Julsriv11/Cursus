@@ -19,7 +19,7 @@
 bytes a comparar en vez de nº máx char como en strncmp*/
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -41,8 +41,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 /*int	main()
 {
-	const char	str1[] = "Oslo hola que tal";
-	const char	str2[] = "Oslo holta que tal";
+	const char	str1[] = "Oslo que tal";
+	const char	str2[] = "Osla que tal";
 	int		x;
 	int		y;
 

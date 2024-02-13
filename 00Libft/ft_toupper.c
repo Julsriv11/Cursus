@@ -13,8 +13,7 @@
 //Lowercase char a-z 97-122
 //Uppercase char A-Z 65-90
 
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
 int	ft_toupper(int c)
 {

@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include <stdio.h>
+#include "libft.h"
 
 int	ft_isprint(int c)
 {
@@ -19,3 +20,14 @@ int	ft_isprint(int c)
 	else
 		return (0);
 }
+
+/*int main()
+{
+	int	x = '7';
+
+	if (ft_isprint(x) != 0)
+		printf("Verdadero es %d", ft_isprint(x));
+	else
+		printf("Falso %d", ft_isprint(x));
+	return 0;
+}*/

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -34,4 +34,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	printf(" %d\n", ft_strncmp(s1, s2, 6));
 	printf(" %d\n", strncmp(s1, s2, 6));
 	return(0);
+}*/
+
+/*int main()
+{
+	char	one[] = "abcde";
+	char	two[] = "abcxe";
+
+	printf("Diferencia %d", ft_strncmp(one, two, 4));
+	return 0;
 }*/
