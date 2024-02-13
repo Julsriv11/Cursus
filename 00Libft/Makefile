@@ -73,7 +73,7 @@ bonus: $(BONUS_OBJS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

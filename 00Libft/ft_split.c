@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		result[j] = ft_calloc(len(s, c) + 1, sizeof(char));
 		if (!result[j])
-			ft_freedom(result, j);
+			return (ft_freedom(result, j));
 		while (s[++i] != c && s[i] != '\0')
 			result[j][i] = s[i];
 		s += i;
