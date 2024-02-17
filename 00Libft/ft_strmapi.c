@@ -15,7 +15,10 @@
 
 /*char    ft(unsigned int i, char c)
 {
-    return (c + (i + 1));
+	(void)i;
+	if (ft_isdigit(c))
+		return ('x');
+	return(c);
 }*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -42,7 +45,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 /*int main()
 {
-    char    *cad = "abcde";
+    char    *cad = "abcde123abc";
 	char    *str2;
 
 	str2 = ft_strmapi(cad, &ft);
