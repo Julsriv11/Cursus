@@ -58,7 +58,6 @@ static void	*ft_freedom(char **str, int count)
 		i++;
 	}
 	free(str);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -68,11 +67,11 @@ char	**ft_split(char const *s, char c)
 	size_t		j;
 	size_t		k;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	k = ft_count_w(s, c);
 	result = ft_calloc(k + 1, sizeof(char *));
-	if (!result)
+	if (result == NULL)
 		return (NULL);
 	j = -1;
 	while (++j < k)
@@ -81,8 +80,8 @@ char	**ft_split(char const *s, char c)
 		while (*s == c)
 			s++;
 		result[j] = ft_calloc(len(s, c) + 1, sizeof(char));
-		if (!result[j])
-			return (ft_freedom(result, j));
+		if (result[j] == NULL)
+			return (ft_freedom(result, j), NULL);
 		while (s[++i] != c && s[i] != '\0')
 			result[j][i] = s[i];
 		s += i;

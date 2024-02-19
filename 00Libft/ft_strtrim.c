@@ -19,7 +19,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	j;
 
 	i = 0;
-	if (!s1 || !set)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
 	while (s1[i] && ft_strchr(set, *s1))
 		s1++;

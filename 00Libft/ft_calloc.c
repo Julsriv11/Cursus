@@ -30,8 +30,8 @@ void	*ft_calloc(size_t count, size_t size)
 	if (count > 0 && size > 0 && SIZE_MAX / size < count)
 		return (NULL);
 	x = (void *)malloc(count * size);
-	if (!x)
-		return (0);
+	if (x == NULL)
+		return (NULL);
 	ft_memset(x, 0, count * size);
 	return (x);
 }

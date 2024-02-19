@@ -29,11 +29,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	len = ft_strlen(s);
-	if (!s || !f)
+	if (s == NULL || f == NULL)
 		return (NULL);
 	str = malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (0);
+	if (str == NULL)
+		return (NULL);
 	while (i < len)
 	{
 		str[i] = f(i, s[i]);

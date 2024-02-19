@@ -54,7 +54,7 @@ char	*ft_itoa(int n)
 	nbr = n;
 	len = ft_n_len(nbr);
 	str = ft_mem_n(len);
-	if (!str)
+	if (str == NULL)
 		return (NULL);
 	if (nbr < 0)
 		nbr = -nbr;
