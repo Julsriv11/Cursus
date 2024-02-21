@@ -19,7 +19,7 @@ int	main(void)
 	int	x;
 	int	y;
 	int num = 21;
-	void *ptr = malloc(10);
+	//void *ptr = malloc(10);
 
 	x = ft_printf("Hola %d o %i o %s o %p\n", num, ptr );
 	y = printf("Hola %d o %i o %s o %p\n", num, ptr );

@@ -17,53 +17,65 @@
 //función que escribe lo que lee según encuentra un % o no
 //función asigne número a tipo de argumento
 
-static int  ft_parameters(va_list args, int j, char *phrase)
+int  ft_parameters(const char *s, va_list args)
 {
-    int x;
-    int y;
+    int	printlen;
 
-    x = 0;
-    y = 0;
-    if (phrase[x] == 'c')
-        y = ft_putchar(va_arg(args, int));
-    else if (phrase[x] == 'i')
-        
-    else if (phrase[x] == 's')
-        y = ft_putstr(va_arg(args, int));
-    else if (phrase[x] == 'p')
-
-    else if (phrase[x] == 'd')
-
-    else if (phrase[x] == 'u')
-
-    else if (phrase[x] == 'x')
-
-    else if (phrase[x] == 'X')
-
-    else if (phrase[x] == '%')
-
-    
+	printlen = 0;
+	if (*s == 'c')
+        printlen += print_c(va_arg(args, int));
+    else if (*s == 'i' || *s == 'd')
+        printlen += print_num(va_arg(args, int));
+    else if (*s == 's')
+        printlen += print_str(va_arg(args, char *));
+    else if (*s == 'p')
+		printlen += print_ptr(va_arg(args, unsigned long long));
+    else if (*s == 'u')
+		printlen += print_unsigned(va_arg(args, unsigned int));
+    else if (*s == 'x' || *s == 'X')
+		printlen += print_hex(va_arg(args, unsigned int));
+    else if (*s == '%')
+	{
+		write(1, '%', 1);
+		return (1);
+	}	
+    return (printlen);
 }
-int	ft_printf(char const *phrase, ...)
+int	ft_printf(char const *s, ...) //me printea la longitud que reciba
 {
-	va_list	arg;
+	size_t	print;
+	va_list	args;
 
-	va_start(args, phrase);
-
+	print = 0;
+	va_start(args, s);
+	while (*s != '\0')
+	{
+		if (*s != '%' && *(s + 1) != '\0')
+		{
+			print += ft_parameters(s, args);
+			s++;
+		}
+		else
+		{
+			write(1, s, 1);
+			print++;
+		}
+		s++;
+	}
 	va_end(args);
-	return ();
+	return (print);
 }
 
-int ft_printf(char const *phrase, ...)
+/*int ft_printf(char const (*s, ...)
 {
-    /*inicia iterando la frase hasta que encuentre el símbolo %.
+    inicia iterando la frase hasta que encuentre el símbolo %.
     Cuando encuentra % para de escribir y mira una posición más, 
     donde nos indica qué tipo de parámetro le estamos pasando.
     Una vez hayamos "escrito" nuestra string utilizando putstr y 
     contando el tamaño que tiene (para añadir más adelante), volvemos
     a la string principal y sigue imprimiendo hasta que vuelva a
     encontrar el %.
-    */
+    
 	int     i; //iterador para leer la frase
 	int     j; //otro iterador para sumar lo que voy leyendo con %
 	char    *str; //la frase a escribir
@@ -71,8 +83,8 @@ int ft_printf(char const *phrase, ...)
 
 	i = 0;
 	j = 0;
-	str = (char *)phrase;
-	va_start(args, phrase);
+	str = (char *(*s;
+	va_start(args,(*s);
 	while (str[i])
 	{
     	if (str[i] != '%')
@@ -86,4 +98,4 @@ int ft_printf(char const *phrase, ...)
 	}
 	va_end(args);
 	return (j);
-	}
+}*/
