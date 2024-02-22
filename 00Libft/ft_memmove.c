@@ -48,18 +48,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 /*int main()
 {
-	char	str[] = "Esto es una prueba";
-	char	dest[50];
-
-	ft_memmove(dest, str, 4);
-	printf("What it is? %p\n", dest);
-	memmove(dest, str, 4);
-	printf("The original %p \n", dest);
-	return(0);
-}*/
-
-/*int main()
-{
 	char str[] = "Es muuy chuli";
 	char other[30];
 

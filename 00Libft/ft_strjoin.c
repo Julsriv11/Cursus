@@ -49,12 +49,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	printf("Contraseña: %s \n", ft_strjoin(first, second));
 	return (0);
 }*/
-
-/*int main()
-{
-	char	*word = "circus";
-	char	*begin = "Picadilly";
-
-	printf("%s", ft_strjoin(begin, word));
-	return 0;
-}*/

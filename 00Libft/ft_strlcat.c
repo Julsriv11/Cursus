@@ -49,7 +49,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 /*int main()
 {
 	char	*word = "square";
-	char	home[10];
+	char	home[5] = "Blood";
 	size_t	count;
 	size_t	manual;
 

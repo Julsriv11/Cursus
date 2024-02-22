@@ -29,8 +29,8 @@ void	ft_bzero(void *s, size_t n)
 /*int main()/
 {
     char str[] = "xxx rules";
-    ft_bzero(str, 3);
-    printf("%s\n", str);
+
+    printf("%s\n", ft_bzero(str, 3));
     printf("%s\n", bzero(str, 3));
     return (0);
 }*/
