@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/11 18:48:04 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -27,3 +27,15 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+
+/*int main()
+{
+    const char *str = "He is in London";
+    const void *found;
+
+    found = ft_memchr(str, 'L', strlen(str));
+    printf("Where is Garbi? %p \n", found);
+    found = memchr(str, 'L', strlen(str));
+    printf("Original one adress: %p \n", found);
+    return 0;
+}*/

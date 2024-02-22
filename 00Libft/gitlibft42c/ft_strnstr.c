@@ -36,3 +36,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
+
+/*int main()
+{
+	char	one[] = "roro";
+	char	two[] = "Found roro in the whole world";
+
+	printf("%s", ft_strnstr(two, one, 3));
+	return 0;
+}*/

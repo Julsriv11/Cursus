@@ -27,3 +27,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		j--;
 	return (ft_substr(s1, i, j - i));
 }
+
+/*int main()
+{
+	char	*one = "abcdeSOLO QUIERO ESTOabcde";
+	char	*fail = "cabed";
+
+	printf("%s", ft_strtrim(one, fail));
+	return 0;
+}*/

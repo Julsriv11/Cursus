@@ -39,3 +39,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return (str);
 }
+
+/*int	main(void)
+{
+	char	*second = "pilotes";
+	char	*first = "Hostia ";
+
+	printf("%s \n", ft_strjoin(first, second));
+	return (0);
+}*/

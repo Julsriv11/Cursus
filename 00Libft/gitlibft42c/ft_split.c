@@ -76,3 +76,19 @@ char	**ft_split(char const *s, char c)
 	}
 	return (result);
 }
+
+/*int main ()
+{
+	char	*one = "Todo,separado,por,palabra";
+	char	**home;
+	char	sep = ',';
+	int		i = 0;
+
+	home = ft_split(one, sep);
+	while (home[i] != '\0')
+	{
+		printf("%s\n", home[i]);
+		i++;
+	}
+	return 0;
+}*/

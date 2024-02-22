@@ -38,3 +38,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+
+/*int main()
+{
+	char str[] = "Es muuy chuli";
+	char other[30];
+
+	printf("Mi copia %s", ft_memmove(other, str, ft_strlen(str)));
+	return 0;
+}*/
