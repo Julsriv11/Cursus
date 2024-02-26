@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/*void ft_leaks()
+{
+	system("leaks -q a.out");
+}*/
+
 static int	ft_n_len(long nbr)
 {
 	int	count;
@@ -70,3 +75,13 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
+
+
+
+ int main()
+{
+	int n  = -2147483648;
+	printf("%s\n", ft_itoa(n));
+	return 0;
+}
+ 

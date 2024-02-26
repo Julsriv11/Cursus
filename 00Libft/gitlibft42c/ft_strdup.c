@@ -29,3 +29,10 @@ char	*ft_strdup(const char *s1)
 	ptr[i] = '\0';
 	return (ptr);
 }
+
+/*int main()
+{
+	char	str[] = "Three little tigers";
+	printf("%s", ft_strdup(str));
+	return 0;
+}*/

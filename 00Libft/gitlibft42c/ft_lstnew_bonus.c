@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 t_list	*ft_lstnew(void *content)
 {
@@ -23,3 +24,14 @@ t_list	*ft_lstnew(void *content)
 	elem->next = NULL;
 	return (elem);
 }
+
+/*int main(void)
+{
+	t_list	*nodo = malloc(sizeof(t_list));
+
+	nodo->content = malloc(sizeof(int));
+	*(int *)nodo->content = 11;
+	ft_lstnew(nodo);
+	printf("Save in my lst %d", *(int *)nodo->content);
+	return 0;
+}*/

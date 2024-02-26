@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <fcntl.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {
@@ -36,3 +37,12 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &num, 1);
 	}
 }
+
+/*int main(void)
+{
+	int fd;
+
+	fd = open("myfile.txt", O_WRONLY);
+	ft_putnbr_fd(1996, fd);
+	return 0;
+}*/

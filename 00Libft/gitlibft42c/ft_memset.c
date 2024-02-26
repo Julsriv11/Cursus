@@ -26,3 +26,14 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
+
+/*int main()
+{
+    char str[] = "Hasta luego Maricarmen";
+
+    ft_memset(str, 'a', 3);
+	printf("Test 1 %s \n", str);
+	memset(str, 'a', 3);
+	printf("Man %s \n", str);
+    return (0);
+}*/

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -40,3 +41,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	subs[i] = '\0';
 	return (subs);
 }
+
+/*int main()
+{
+    char    *str = "Se abre el telón: TODO esto debe aparecer";
+
+    printf("%s \n", ft_substr(str, 19, 100));
+    return (0);
+}*/

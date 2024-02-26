@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -28,3 +29,22 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
+
+/*int main()
+{
+     t_list *root = malloc(sizeof(t_list));
+	 t_list	*new_nodo = malloc(sizeof(t_list));
+
+     root->content = malloc(sizeof(int));
+	 *(int *)root->content = 21;
+	 new_nodo->content = malloc(sizeof(int));
+	 *(int *)new_nodo->content = 11;
+     ft_lstadd_back(&root, new_nodo);
+     t_list *curr = root;
+     while (curr != NULL)
+     {    
+          printf("%d\n", *(int *)curr->content);
+          curr = curr->next; //Esto sirve para avanzar
+     }
+     return (0);
+}*/

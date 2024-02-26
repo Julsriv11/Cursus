@@ -21,3 +21,18 @@ size_t	ft_strlen(const char *s)
 		len++;
 	return (len);
 }
+
+/* Comprobar que exista el parámetro que recibimos
+size_t	ft_strlen(const char *s)
+{
+	int	len;
+
+	len = 0;
+	//
+	if (s == NULL)
+		return (len);
+	//
+	while (s[len] != '\0')
+		len++;
+	return (len);
+}*/

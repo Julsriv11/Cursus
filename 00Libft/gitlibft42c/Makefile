@@ -85,4 +85,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean 
+.PHONY: all clean fclean      bonus re
+
+#Añadir reglas para proteger en futuros proyectos. Sirve para cuando hagamos make en la línea
+#de comandos y en otro archivo tengamos declarado un "all clean fclean bonus re", compile esta
+#regla y no otra.

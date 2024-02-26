@@ -37,3 +37,11 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * x);
 }
+
+/*int main()
+{
+	char num[] = "123456789";
+
+	printf("%d", ft_atoi(num));
+	return 0;
+}*/

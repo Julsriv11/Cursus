@@ -24,3 +24,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	else
 		return ((int)((unsigned char)s1[i] - (unsigned char)s2[i]));
 }
+
+/*int main()
+{
+	char	one[] = "abcde";
+	char	two[] = "abcxe";
+
+	printf("Diferencia %d", ft_strncmp(one, two, 4));
+	return 0;
+}*/

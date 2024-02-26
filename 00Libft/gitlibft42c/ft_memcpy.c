@@ -26,3 +26,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+
+/*int main()
+{
+	char ini[] = "Esta es una copia";
+	char dest[15];
+
+	printf("Propia %s\n", ft_memcpy(dest, ini, 17));
+	printf("Original %s", memcpy(dest, ini, 17));
+	return 0;
+}*/

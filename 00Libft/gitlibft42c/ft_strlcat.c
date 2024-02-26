@@ -32,3 +32,17 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		i++;
 	return (lon_dst + i);
 }
+
+/*int main()
+{
+	char	*word = "square";
+	char	home[5] = "Blood";
+	size_t	count;
+	size_t	manual;
+
+	count = ft_strlcat(home, word, sizeof(home));
+	printf("%zu\n", count);
+	manual = strlcat(home, word, sizeof(home));
+	printf("%zu\n", manual);
+	return 0;
+}*/

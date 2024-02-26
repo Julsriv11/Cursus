@@ -23,3 +23,26 @@ t_list	*ft_lstlast(t_list *lst)
 		ult = ult->next;
 	return (ult);
 }
+
+#include <stdio.h>
+int main(void)
+{
+	t_list x;
+	t_list y;
+	t_list z;
+
+	x.content = malloc(sizeof(int));
+	*(int *)x.content = 1;
+	x.next = &y;
+	y.content = malloc(sizeof(int));
+	*(int *)y.content = 2;
+	y.next = &z;
+	z.content = malloc(sizeof(int));
+	*(int *)z.content = 3;
+	z.next = NULL;
+	printf("Size of lst is %d\n", ft_lstlast(&x)->content);
+	free(x.content);
+	free(y.content);
+	free(z.content);
+	return 0;
+}

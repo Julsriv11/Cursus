@@ -29,3 +29,17 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+/*int	main()
+{
+	const char	str1[] = "Oslo que tal";
+	const char	str2[] = "Osla que tal";
+	int		x;
+	int		y;
+
+	x = ft_memcmp(str1, str2, 10);
+	printf("R1 %d\n", x);
+	y = memcmp(str1, str2, 10);
+	printf("R2 %d\n", y);
+	return (0);
+}*/

@@ -24,3 +24,9 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_memset(x, 0, count * size);
 	return (x);
 }
+
+/*int main ()
+{
+	ft_calloc(1646151656164, 20849816189498);
+	return 0;
+}*/

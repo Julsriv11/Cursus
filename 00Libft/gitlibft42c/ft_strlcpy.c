@@ -28,3 +28,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	return (i);
 }
+
+#include <stdio.h>
+int main()
+{
+	char	*one = "Esternocleidomastoideo";
+	char	end[30];
+	char	*one2 = "Esternocleidomastoideo";
+	char	end2[30];
+
+	printf("FT: %zu, %s\n", ft_strlcpy(end, one, sizeof(end)), end);
+	printf("OG: %zu, %s\n", strlcpy(end2, one2, sizeof(end2)), end2);
+	return 0;
+}

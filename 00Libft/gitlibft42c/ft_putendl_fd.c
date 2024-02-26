@@ -23,12 +23,14 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 }
 
-/*int	main(void)
+#include <fcntl.h>
+
+int main(void)
 {
 	char *s = "Probando esto de los fd";
-	int fd = 1;
+	int fd;
+
+	fd = open("myfile.txt", O_WRONLY);
 
 	ft_putendl_fd(s, fd);
-
-	return (0);
-}*/
+}

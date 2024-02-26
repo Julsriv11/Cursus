@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
@@ -44,6 +45,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char str[] = "Es muuy chuli";
 	char other[30];
 
-	printf("Mi copia %s", ft_memmove(other, str, ft_strlen(str)));
+	printf("Mi copia está ubicada en %p", ft_memmove(other, str, ft_strlen(str)));
 	return 0;
 }*/

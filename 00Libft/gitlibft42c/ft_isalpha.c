@@ -16,3 +16,14 @@ int	ft_isalpha(int c)
 {
 	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
+
+/*int main()
+{
+	int	x = '7';
+
+	if (ft_isalpha(x) != 0)
+		printf("Verdadero es %d", ft_isalpha(x));
+	else
+		printf("Falso %d", ft_isalpha(x));
+	return 0;
+}*/

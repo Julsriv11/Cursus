@@ -28,6 +28,6 @@ int main(void)
 	ft_putchar_fd('J', fd);
 }
 Para realizar esta función, se crea una archivo.txt en la carpeta. Se escribe este
-main, se compila y se ejecuta. Tras realizar esto, al abrir ell archivo se habrá
+main, se compila y se ejecuta. Tras realizar esto, al abrir el archivo se habrá
 escrito la J.
 */

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_lstsize(t_list *lst)
 {
@@ -26,3 +27,25 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
+
+/*int main(void)
+{
+	t_list x;
+	t_list y;
+	t_list z;
+
+	x.content = malloc(sizeof(int));
+	*(int *)x.content = 1;
+	x.next = &y;
+	y.content = malloc(sizeof(int));
+	*(int *)y.content = 2;
+	y.next = &z;
+	z.content = malloc(sizeof(int));
+	*(int *)z.content = 3;
+	z.next = NULL;
+	printf("Size of lst is %d\n", ft_lstsize(&x));
+	free(x.content);
+	free(y.content);
+	free(z.content);
+	return 0;
+}*/

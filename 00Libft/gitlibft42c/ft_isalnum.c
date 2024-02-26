@@ -16,3 +16,14 @@ int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }
+
+/*int main()
+{
+	int	x = 'J';
+
+	if (ft_isalnum(x) != 0)
+		printf("Verdadero %d", ft_isalnum(x));
+	else
+		printf("Falso %d", ft_isalnum(x));
+	return 0;
+}*/

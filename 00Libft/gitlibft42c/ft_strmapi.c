@@ -33,3 +33,22 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
+
+/*char    ft(unsigned int i, char c)
+{
+	(void)i;
+	if (ft_isdigit(c))
+		return ('x');
+	return(c);
+}
+
+int main()
+{
+    char    *cad = "abcde123abc";
+	char    *str2;
+
+	str2 = ft_strmapi(cad, &ft);
+	printf("Original %s\n", cad);
+    printf("Funcionada %s\n", str2);
+    return (0);
+}*/

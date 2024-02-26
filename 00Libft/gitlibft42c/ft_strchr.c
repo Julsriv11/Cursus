@@ -24,3 +24,10 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
+
+/*int main()
+{
+    char    *str = "John Mr MSnow";
+    printf("%s \n", ft_strchr (str, 'M'));
+    return 0;
+}*/

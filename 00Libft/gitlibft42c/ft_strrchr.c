@@ -27,3 +27,11 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)s);
 	return ((char *)last);
 }
+
+/*int main()
+{
+	char	one[] = "Encuentra la RV o River";
+
+	printf("%s", ft_strrchr(one, 'R'));
+	return 0;
+}*/

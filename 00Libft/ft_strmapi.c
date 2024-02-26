@@ -43,7 +43,15 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (str);
 }
 
-/*int main()
+/*char    ft(unsigned int i, char c)
+{
+	(void)i;
+	if (ft_isdigit(c))
+		return ('x');
+	return(c);
+}
+
+int main()
 {
     char    *cad = "abcde123abc";
 	char    *str2;

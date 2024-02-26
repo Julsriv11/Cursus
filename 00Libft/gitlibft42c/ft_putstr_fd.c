@@ -19,3 +19,15 @@ void	ft_putstr_fd(char *s, int fd)
 	else
 		write(fd, s, ft_strlen(s));
 }
+
+/*#include <fcntl.h>
+
+int main(void)
+{
+	char *s = "Probando esto de los fd";
+	int fd;
+
+	fd = open("prueba.txt", O_WRONLY);
+
+	ft_putstr_fd(s, fd);
+}*/
