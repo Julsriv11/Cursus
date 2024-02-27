@@ -3,99 +3,86 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:42:30 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/02/17 16:48:47 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:44:52 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//función strlen para este proyecto
-//función que chequea lo que entra, si está vacía o no
-//función que escribe lo que lee según encuentra un % o no
-//función asigne número a tipo de argumento
-
-int  ft_parameters(const char *s, va_list args)
+int print_str(char *s)
 {
-    int	printlen;
+    int len;
 
-	printlen = 0;
-	if (*s == 'c')
+    len = 0;
+    if (s == NULL)
+    {
+        write(1, "(null)", 6);
+        return (6);
+    }
+    if (s[len] != '\0')
+    {
+        write(1, &s[len], 1);
+        len++;
+    }   
+    return (len);
+}
+
+int print_c(char c)
+{
+    write(1, &c, 1);
+    return (1);
+}
+
+int  ft_parameters(va_list args, int printlen, const char s)
+{
+	if (s == 'c')
         printlen += print_c(va_arg(args, int));
-    else if (*s == 'i' || *s == 'd')
+    else if (s == 'i' || s == 'd')
         printlen += print_num(va_arg(args, int));
-    else if (*s == 's')
+    else if (s == 's')
         printlen += print_str(va_arg(args, char *));
-    else if (*s == 'p')
-		printlen += print_ptr(va_arg(args, unsigned long long));
-    else if (*s == 'u')
-		printlen += print_unsigned(va_arg(args, unsigned int));
-    else if (*s == 'x' || *s == 'X')
-		printlen += print_hex(va_arg(args, unsigned int));
-    else if (*s == '%')
+    else if (s == 'p')
 	{
-		write(1, '%', 1);
-		return (1);
-	}	
+		write(1, "0x", 2);
+		printlen += print_ptr(va_arg(args, uintptr_t)) + 2;
+	}
+    else if (s == 'u')
+		printlen += print_unsigned((va_arg(args, unsigned int), "0123456789"));
+    else if (s == 'x')
+		printlen += print_hexadecimal((va_arg(args, unsigned int), "0123456789abcdef"));
+		else if (s == 'X')
+		printlen += print_hexadecimal((va_arg(args, unsigned int), "0123456789ABCDEF"));
+    else if (s == '%')
+		printlen += print_c('%');
     return (printlen);
 }
-int	ft_printf(char const *s, ...) //me printea la longitud que reciba
+//me printea la longitud que reciba
+
+int	ft_printf(char const *s, ...) 
 {
 	size_t	print;
 	va_list	args;
+	int		i;
 
 	print = 0;
+	i = 0;
 	va_start(args, s);
-	while (*s != '\0')
+	while (s[i] != '\0')
 	{
-		if (*s != '%' && *(s + 1) != '\0')
+		if (s[i] == '%' && s[i + 1] != '\0')
 		{
-			print += ft_parameters(s, args);
-			s++;
+			print = print + ft_parameters(args, print, s[i]);
+			i++;
 		}
-		else
-		{
-			write(1, s, 1);
-			print++;
-		}
-		s++;
+		else if (s[i] == '%' && s[i + 1] == '\0')
+			return (0);
+		else 
+			print = print + print_c(s[i]);
+			i++;
 	}
 	va_end(args);
 	return (print);
 }
-
-/*int ft_printf(char const (*s, ...)
-{
-    inicia iterando la frase hasta que encuentre el símbolo %.
-    Cuando encuentra % para de escribir y mira una posición más, 
-    donde nos indica qué tipo de parámetro le estamos pasando.
-    Una vez hayamos "escrito" nuestra string utilizando putstr y 
-    contando el tamaño que tiene (para añadir más adelante), volvemos
-    a la string principal y sigue imprimiendo hasta que vuelva a
-    encontrar el %.
-    
-	int     i; //iterador para leer la frase
-	int     j; //otro iterador para sumar lo que voy leyendo con %
-	char    *str; //la frase a escribir
-	va_list args; //argumentos que le vaya a pasar
-
-	i = 0;
-	j = 0;
-	str = (char *(*s;
-	va_start(args,(*s);
-	while (str[i])
-	{
-    	if (str[i] != '%')
-        	j = j + ft_putchar(str[i]);
-    	else if (str[i] == '%')
-    	{
-        	j = ft_parameters(args, j, &str[i]);
-        	i++;
-    	}
-    	i++;
-	}
-	va_end(args);
-	return (j);
-}*/
