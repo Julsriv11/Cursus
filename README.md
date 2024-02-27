@@ -1,1 +1,1 @@
-# cursus-libft
+# cursus
