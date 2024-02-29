@@ -6,7 +6,7 @@
 /*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:24:55 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/02/27 16:30:09 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:42:45 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,30 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
-	size_t	size1;
-	size_t	size2;
 	int		i;
 	int		j;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL)
+	{
+		s1 = (char *)malloc(sizeof(char));
+		s1[0] = '\0';
+	}
+	if (s2 == NULL || s1 == NULL)
 		return (NULL);
-	size1 = ft_strlen(s1);
-	size2 = ft_strlen(s2);
-	str = ft_calloc(size1 + size2 + 1, sizeof(char));
-	if (str == NULL)
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)	
 		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
-	{
-		str[i] = s1[i];
-		i++;
-	}
+		str[i++] = s1[i++];
 	j = 0;
 	while (s2[j] != '\0')
 		str[i++] = s2[j++];
 	str[i] = '\0';
+	free(s1);
 	return (str);
 }
 
@@ -86,10 +85,8 @@ size_t	ft_strlen(const char *s)
 	int	len;
 
 	len = 0;
-	//
 	if (s == NULL)
 		return (len);
-	//
 	while (s[len] != '\0')
 		len++;
 	return (len);
