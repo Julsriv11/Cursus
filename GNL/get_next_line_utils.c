@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:24:55 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/02/29 17:42:45 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/01 21:14:29 by juliaariasi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,31 @@ size_t	ft_strlen(const char *s)
 	while (s[len] != '\0')
 		len++;
 	return (len);
+}
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*x;
+
+	if (count > 0 && size > 0 && SIZE_MAX / size < count)
+		return (NULL);
+	x = (void *)malloc(count * size);
+	if (!x)
+		return (0);
+	ft_memset(x, 0, count * size);
+	return (x);
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+	{
+		ptr[i] = c;
+		i++;
+	}
+	return (b);
 }
