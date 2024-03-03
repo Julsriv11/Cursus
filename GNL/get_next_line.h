@@ -19,8 +19,9 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 void    *ft_calloc(size_t count, size_t size);
 void    *ft_memset(void *b, int c, size_t len);
-char    *get_each_lines(char *reach_lines);
-char    *get_buf(char *reach_lines, int fd);
+char    *join_and_free(char *static_lines, char *buffer);
+char    *go_next_line(char *static_lines);
+char    *returned_line(char *static_lines);
 char    *get_next_line(int fd);
 
 #endif

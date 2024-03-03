@@ -1,85 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 16:24:34 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/02 00:02:00 by juliaariasi      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "get_next_line.h"
 
-char    *get_stash(char *reach_lines)
-{
-    
-}
-
-char    *get_each_lines(char *reach_lines)
-{
-    char *each_line;
-    int   i;
-
-    i = 0;
-    while (reach_lines[i] && reach_lines != '\n')
-        i++;
-    each_line = malloc(sizeof(char) * (i + 2));
-    if (each_line == NULL)
-        return (NULL);
-    i = 0;
-    while (reach_lines[i] && reach_lines != '\n') //copia la línea extraída de la estática a la que devolverá con each_line
-    {
-        each_line[i] = reach_lines[i];
-        i++;
-    }
-    each_line[i] = '\0';
-    return (each_line);
-}
-char    *get_buf(char *reach_lines, int fd)  //esta f(x) nos lee el archivo y almacena cada char leído en bytes_read
-{
-    int     bytes_read;
-    char    *buffer;
-
-    bytes_read = 1;
-    buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-    if (buffer == NULL)
-        return (NULL);
-    while (!ft_strchr(reach_lines, '\n') && bytes_read != 0)    //comprueba que no se encuentra con '\n'
-    {
-        bytes_read = read(fd, buffer, BUFFER_SIZE);
-        if (bytes_read <= 0)
-            return (free(buffer), NULL);
-        // {
-        //     free(reach_lines);
-        //     free(buffer);
-        //     return (NULL);
-        // }
-        buffer[bytes_read] = '\0';  //con el tamaño del archivo leído, antes de unirlo, se pone el nulo al final.
-        reach_lines = ft_strjoin(reach_lines, buffer);
-   }
-   free(buffer);
-   return (reach_lines);
-}
-
-char    *get_next_line(int fd)
-{
-    char static *reach_lines;
-    char        *result_lines;
-    
-    if (fd < 0 || BUFFER_SIZE <= 0)
-        return (NULL);
-    reach_lines = get_buf(reach_lines, fd);
-    if (reach_lines == NULL)
-        return (NULL);
-    result_lines = get_each_lines(reach_lines);
-    reach_lines = get_stash(reach_lines);
-     return (result_lines);
-}
-//otra forma
-
-char    *join_and_free(char static_lines, char buffer)
+char    *join_and_free(char *static_lines, char *buffer)
 {
     char    *ptr;
 
@@ -87,9 +8,49 @@ char    *join_and_free(char static_lines, char buffer)
     free(buffer);
     return (ptr);
 }
-char    *returned_line(char static_lines)
+
+char    *go_next_line(char *static_lines)
+{   
+    int i;
+    int j;
+    char *next_line;
+
+    i = 0;
+    while (static_lines[i] && static_lines[i] != '\n')
+        i++;
+    if (!static_lines[i])
+    {
+        free(static_lines);
+        return (NULL);
+    }
+    next_line = ft_calloc((ft_strlen(static_lines) - i + 1), sizeof(char));
+    i++;
+    j = 0;
+    while (static_lines[i] != '\0')
+        next_line[j++] = static_lines[i++];
+    free(static_lines);
+    return (next_line);
+}
+char    *returned_line(char *static_lines)   //vamos a ir a la siguiente línea y actualizar el ptr de la estática
 {
-    
+    char    *end_of_line;
+    int     i;
+
+    i = 0;
+    if (!static_lines[i])
+        return (NULL);
+    while (static_lines[i] && static_lines[i] != '\n')
+        i++;
+    end_of_line = ft_calloc(i + 2, sizeof(char));
+    i = 0;
+    while (static_lines[i] && static_lines[i] != '\n')
+    {
+        end_of_line[i] = static_lines[i];
+        i++;
+    }
+    if (static_lines[i] && static_lines[i] == '\n')
+        end_of_line[i] = '\n';
+    return (end_of_line);
 }
 
 char    *read_file(char *static_lines, int fd)  //esta función lee el archivo, y obtiene el "tamaño"
@@ -115,7 +76,7 @@ char    *read_file(char *static_lines, int fd)  //esta función lee el archivo, 
             break ;
     }
     free(buffer);
-    return (bytes_read);
+    return (static_lines);
 }
 
 char    *get_next_line(int fd)
@@ -129,33 +90,33 @@ char    *get_next_line(int fd)
     if (static_lines == NULL)
         return (NULL);
     result = returned_line(static_lines);
-    static_lines = next_line(static_lines);
+    static_lines = go_next_line(static_lines);
     return (result);
 }
 
-// int main(void)
-// {
-//     int     fd = open("testeo.txt", O_RDONLY);
-//     char    *next_line;
-//     int     count = 0;
-//     if (fd == -1)
-//     {
-//         printf("Error opening file");
-//         return 1;
-//     }
-//     while (1) // para llamar infinitamente a la función.
-//     {
-//         next_line = get_next_line(fd);
-//         if (next_line == NULL)
-//             break;
-//         count++;
-//         printf("Línea %d: %s\n", count, next_line);
-//         free(next_line);
-//         next_line = NULL;
-//     }
-//     close(fd);
-//     return 0;
-// }
+int main(void)
+{
+    int     fd = open("testeo.txt", O_RDONLY);
+    char    *next_line;
+    int     count = 0;
+    if (fd == -1)
+    {
+        printf("Error opening file");
+        return 1;
+    }
+    while (1) // para llamar infinitamente a la función.
+    {
+        next_line = get_next_line(fd);
+        if (next_line == NULL)
+            break ;
+        count++;
+        printf("Línea %d: %s\n", count, next_line);
+        free(next_line);
+        next_line = NULL;
+    }
+    close(fd);
+    return 0;
+}
 
 /*fd 0 = entrada estándar 1 = salida estándar 2 = error
 La función read recuerda donde se quedó leyendo la última vez que fue llamada, de forma que
