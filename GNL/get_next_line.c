@@ -1,13 +1,12 @@
 #include "get_next_line.h"
 
-char    *join_and_free(char *static_lines, char *buffer)
-{
-    char    *ptr;
+// char    *join_and_free(char *static_lines, char *buffer)
+// {
+//     char    *ptr;
 
-    ptr = ft_strjoin(static_lines, buffer);
-    free(buffer);
-    return (ptr);
-}
+//     ptr = ft_strjoin(static_lines, buffer);
+//     return (ptr);
+// }
 
 char    *go_next_line(char *static_lines)
 {   
@@ -70,12 +69,13 @@ char    *read_file(char *static_lines, int fd)  //esta función lee el archivo, 
             free(buffer);
             return (NULL);
         }
-        buffer[bytes_read] = '\0';  //se pone null al final según haya leído con n bytes_read
-        static_lines = join_and_free(static_lines, buffer); //se llama a función que une lo leído, a la variable estática
-        if (ft_strchr(buffer, '\n')) // si encuentra un salto de línea, ha leído una línea y rompe while
+        buffer[bytes_read] = 0;  //se pone null al final según haya leído con n bytes_read
+        //static_lines = join_and_free(static_lines, buffer); //se llama a función que une lo leído, a la variable estática
+        static_lines = ft_strjoin(static_lines, buffer);
+        if (ft_strchr(static_lines, '\n')) // si encuentra un salto de línea, ha leído una línea y rompe while
             break ;
     }
-    free(buffer);
+    //free(buffer);
     return (static_lines);
 }
 
@@ -96,7 +96,7 @@ char    *get_next_line(int fd)
 
 int main(void)
 {
-    int     fd = open("testeo.txt", O_RDONLY);
+    int     fd = open("nothing.txt", O_RDONLY);
     char    *next_line;
     int     count = 0;
     if (fd == -1)

@@ -20,11 +20,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	if (s1 == NULL)
-	{
-		s1 = (char *)malloc(sizeof(char));
-		s1[0] = '\0';
-	}
+	// if (s1 == NULL)
+	// {
+	// 	s1 = (char *)malloc(sizeof(char));
+	// 	s1[0] = '\0';
+	// }
 	if (s2 == NULL || s1 == NULL)
 		return (NULL);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
