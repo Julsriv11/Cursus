@@ -6,7 +6,7 @@
 /*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:55:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/05 19:42:03 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:43:13 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*go_next_line(char *static_lines)
 	char	*next_line;
 
 	i = 0;
-	while (static_liines[i] != '\0' && static_lines[i] != '\n')
+	while (static_lines[i] != '\0' && static_lines[i] != '\n')
 		i++;
 	if (static_lines[i] == '\0')
 	{
