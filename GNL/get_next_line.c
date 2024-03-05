@@ -6,7 +6,7 @@
 /*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:55:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/04 20:16:22 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:35:16 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ char	*go_next_line(char *static_lines) //tras ser retornada, la libera y retorna
 		free(static_lines);
 		return (NULL);
     }
-	next_line = (char *)malloc((ft_strlen(static_lines) - (i + 1)) * sizeof(char));
+	next_line = (char *)malloc((ft_strlen(static_lines) - (i + 1) + 1) * sizeof(char));
 	if (next_line == NULL)
+	{
+		free(static_lines);
 		return (NULL);
+	}
 	i++;
 	j = 0;
 	while (static_lines[i] != '\0')
@@ -48,7 +51,10 @@ char	*returned_line(char *static_lines)	//tras leer la primera línea, la devuel
 		return (NULL);
 	while (static_lines[i] != '\0' && static_lines[i] != '\n')
 		i++;
-	line_completed = malloc((i + 2) * sizeof(char)); //el +2 es para el nulo y el salto de línea en cuanto a memoria?
+	if (static_lines[i] == '\0')
+		line_completed = malloc((i + 1) * sizeof(char));
+	else
+		line_completed = malloc((i + 2) * sizeof(char));
 	if (line_completed == NULL)
 		return (NULL);
 	i = 0;
@@ -66,8 +72,8 @@ char	*returned_line(char *static_lines)	//tras leer la primera línea, la devuel
 	return (line_completed);
 }
 
-char	*read_file(char *static_lines, int fd)  //esta función lee la primera línea de mi archivo, por tanto debe manejar si le pasa un nulo, uno vacío...
-{
+char	*read_file(char *static_lines, int fd)  //esta función lee la primera línea de mi archivo y almacenar la "lectura" en static_lines,
+{												// por tanto debe manejar si le pasa un nulo, uno vacío...
 	char	*buffer;
 	int		bytes_read;
 
@@ -78,7 +84,7 @@ char	*read_file(char *static_lines, int fd)  //esta función lee la primera lín
 	while (bytes_read != 0 && !ft_strchr(static_lines, '\n'))  //comienzo a leer mientras no encuentre salto línea
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE); //lee y cuenta n bytes
-		if (bytes_read <= 0)    //si está vacio, liberas y retornas null
+		if (bytes_read == -1)     //si está vacio, liberas y retornas null
 		{
 			free(static_lines);
 			free(buffer);
@@ -87,7 +93,7 @@ char	*read_file(char *static_lines, int fd)  //esta función lee la primera lín
 		buffer[bytes_read] = '\0';  //se pone null al final según haya leído la primera línea con n bytes_read
 		static_lines = ft_strjoin(static_lines, buffer); //se unirá cada línea
 	}
-    free(buffer);
+	free(buffer);
     return (static_lines);
 }
 
@@ -96,10 +102,10 @@ char	*get_next_line(int fd)
 	static char	*static_lines;
 	char		*result;
 
-	if (fd < 0 || BUFFER_SIZE < 0 || BUFFER_SIZE == INT_MAX)
+	if (fd < 0 || BUFFER_SIZE < 0)
 		return (NULL);
 	static_lines = read_file(static_lines, fd);
-	if (static_lines == NULL)
+	if (static_lines == NULL || static_lines == 0)
 		return (NULL);
 	result = returned_line(static_lines);
 	static_lines = go_next_line(static_lines);
@@ -110,33 +116,34 @@ char	*get_next_line(int fd)
 // 	system("leaks -q a.out");
 // }
 
-int main(void)
-{
-    int     fd = open("testeo.txt", O_RDONLY);
-    char    *next_line;
-    int     count = 0;
-    if (fd == -1)
-    {
-        printf("Error opening file");
-        return 1;
-    }
-    while (1) // para llamar infinitamente a la función.
-    {
-        next_line = get_next_line(fd);
-        if (next_line == NULL)
-        {
-			printf("El archivo está vacío o es nulo");
-            break ;
-		}
-        count++;
-        printf("Línea %d: %s\n", count, next_line);
-        free(next_line);
-        next_line = NULL;
-    }
-    close(fd);
-	   //system("leaks -q a.out");
-    return 0;
-}
+// int main(void)
+// {
+//     int     fd = open("testeo.txt", O_RDONLY);
+//     char    *next_line;
+//     int     count = 0;
+// 	// atexit(ft_leaks);
+//     if (fd == -1)
+//     {
+//         printf("Error opening file");
+//         return 1;
+//     }
+//     while (1) // para llamar infinitamente a la función.
+//     {
+//         next_line = get_next_line(fd);
+//         if (next_line == NULL)
+//         {
+// 			printf("El archivo está vacío o es nulo");
+//             break ;
+// 		}
+//         count++;
+//         printf("Línea %d: %s\n", count, next_line);
+//         free(next_line);
+//         next_line = NULL;
+//     }
+//     close(fd);
+// 	   //system("leaks -q a.out");
+//     return 0;
+// }
 
 /*fd 0 = entrada estándar 1 = salida estándar 2 = error
 La función read recuerda donde se quedó leyendo la última vez que fue llamada, de forma que
