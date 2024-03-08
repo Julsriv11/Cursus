@@ -6,7 +6,7 @@
 /*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:55:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/09 00:06:25 by juliaariasi      ###   ########.fr       */
+/*   Updated: 2024/03/09 00:12:46 by juliaariasi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*full_line(char *static_lines)	//tras leer la primera línea, la devuelve
 		line_completed[j++] = static_lines[i++];
 	if (static_lines[i] == '\n')
 		line_completed[j++] = static_lines[i++];
-	line_completed[i] = '\0';
+	line_completed[j] = '\0';
 	return (line_completed);
 }
 
@@ -107,17 +107,18 @@ char	*get_next_line(int fd)
 	static_lines = to_the_endline(static_lines);
 	return (result);
 }
-void ft_leaks()
-{
-	system("leaks -q a.out");
-}
+
+// void ft_leaks()
+// {
+// 	system("leaks -q a.out");
+// }
 
 int main(void)
 {
-    int     fd = open("testeo.txt", O_RDONLY);
+    int     fd = open("nothing.txt", O_RDONLY);
     char    *next_line;
     int     count = 0;
-	atexit(ft_leaks);
+	//atexit(ft_leaks);
     if (fd == -1)
     {
         printf("Error opening file");
