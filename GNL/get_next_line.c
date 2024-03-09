@@ -6,7 +6,7 @@
 /*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:55:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/09 00:12:46 by juliaariasi      ###   ########.fr       */
+/*   Updated: 2024/03/09 12:29:34 by juliaariasi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,24 @@ char	*read_file(char *static_lines, int fd)  //esta función lee la primera lín
 	char	*buffer;
 	int		bytes_read;
 
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char)); 	//se le aloca memoria a buffer según tamañao de lectura
 	if (buffer == NULL)
 		return (NULL);
 	bytes_read = 1;
 	while (bytes_read != 0 && !ft_strchr(static_lines, '\n'))  //comienzo a leer mientras no encuentre salto línea
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE); //lee y cuenta n bytes
+		bytes_read = read(fd, buffer, BUFFER_SIZE); //lee con tamaño buffer_size y cuenta n bytes
 		if (bytes_read == -1)     //si está vacio, liberas y retornas null
 		{
 			free(static_lines);
 			free(buffer);
 			return (NULL);
 		}
-		buffer[bytes_read] = '\0';  //se pone null al final según haya leído la primera línea con n bytes_read
+		buffer[bytes_read] = '\0';  //se pone null al final según haya leído la primera línea con n bytes_read al encontrarse con '\n'
 		static_lines = ft_strjoin(static_lines, buffer); //se unirá cada línea
 	}
 	free(buffer);
-    return (static_lines);
+    return (static_lines); //se devuelve lo que se leyó que se corresponde con la primera línea 
 }
 
 char	*get_next_line(int fd)
@@ -98,8 +98,8 @@ char	*get_next_line(int fd)
 	static char	*static_lines;
 	char		*result;
 
-	if (fd < 0 || BUFFER_SIZE < 0)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE < 0) //read(fd, 0, 0) < 0, comprobaría que el archivo es "válido", que existe y tiene contenido,
+		return (NULL);				// o que pasaran un archivo que es modificable y que por tanto no puede ser leído.
 	static_lines = read_file(static_lines, fd);
 	if (static_lines == NULL)
 		return (NULL);
