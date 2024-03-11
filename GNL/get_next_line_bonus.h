@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:55:38 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/05 19:31:18 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:10:41 by juliaariasi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE__BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # ifndef BUFFER_SIZE
 # define BUFFER_SIZE 5
 # endif
-
-# include <unistd.h>
+# define MAX_FD 4096 //10240 es el nº máximo de archivos que puede abrir MacOS
+                        // (se puede ver cuando pones en la terminal ulimit -a)
+# include <unistd.h>    // y 4096 en linux, aunque el soft limit es de 1024
 # include <stdlib.h>
 # include <string.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include <limits.h>
 # include <fcntl.h>
+# include <limits.h>
+# include <sys/types.h>
 
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
-char    *go_next_line(char *static_lines);
-char    *returned_line(char *static_lines);
+char    *to_the_endline(char *static_lines);
+char    *full_line(char *static_lines);
+char	*read_file(char *static_lines, int fd);
 char    *get_next_line(int fd);
 
 #endif
