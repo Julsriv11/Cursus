@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:55:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/11 13:28:10 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:54:20 by juliaariasi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ char	*to_the_endline(char *static_lines) //tras ser retornada, la libera y retor
 	i = 0;
 	while (static_lines[i] != '\0' && static_lines[i] != '\n')
 		i++;
-	if (static_lines[i] == '\0')
+	if (static_lines[i] == '\0') //if (!static_lines[i])
     {
 		free(static_lines);
 		return (NULL);
     }
-	x = (char *)malloc((ft_strlen(static_lines) - (i + 1) + 1) * sizeof(char));
+	x = (char *)malloc((ft_strlen(static_lines) - (i + 1) + 1) * sizeof(char)); 
+	// x = malloc((ft_strlen(static_lines) - i + 1) * sizeof(char));
 	if (x == NULL)
 	{
 		free(static_lines);
