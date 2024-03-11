@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
+/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:55:26 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/09 12:29:34 by juliaariasi      ###   ########.fr       */
+/*   Updated: 2024/03/11 13:28:10 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 char	*to_the_endline(char *static_lines) //tras ser retornada, la libera y retorna el resto
 {
@@ -115,7 +116,7 @@ char	*get_next_line(int fd)
 
 int main(void)
 {
-    int     fd = open("nothing.txt", O_RDONLY);
+    int     fd = open("bonus3.txt", O_RDONLY);
     char    *next_line;
     int     count = 0;
 	//atexit(ft_leaks);
@@ -145,7 +146,7 @@ int main(void)
     return 0;
 }
 
-/*fd 0 = entrada estándar 1 = salida estándar 2 = error
+/* fd 0 = entrada estándar 1 = salida estándar 2 = error
 La función read recuerda donde se quedó leyendo la última vez que fue llamada, de forma que
 si le das el tamaño de lectura de tu archivo o de lo que contenga, te leera todo y te 
 el final del archivo
@@ -154,7 +155,13 @@ Se necesita guardar lo que se va leyendo en una variable <=> se acumula la infor
 variable para que luego retorno todo lo almacenado. En inglés, reserva se llama stash.
 Una variable estática es aquella que mantiene su valor entre 2 llamadas a una función por
 lo que es el contador que acumula la info que se va leyendo en el fd. Se les asigna memoria en el segmento
-de los datos y no en el segmento de pila. Se deben iniciar a 0 sino se inician explícitamente*/
+de los datos y no en el segmento de pila. Se deben iniciar a 0 sino se inician explícitamente.
+
+REALMENTE el GNL solo te procesa una línea, es decir, va línea por línea imprimiendo cada vez que se llama
+al while en el int main, por tanto, o que pasa que funciona analizando línea por línea y devolviendola completa
+lea de 1 en 1, de 100 en 100 o de 9999 en 9999. Por tanto, lo que se cuestiona en este proyecto es que nuestro
+programa, lea con el tamaño que lea, si hay una línea la devuelva entera y no "a cachos" y que pueda leer 
+archivos largos, como cortos y que los procese adecuadamente.*/
 
 // char    *join_and_free(char *static_lines, char *buffer)
 // {
