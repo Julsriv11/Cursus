@@ -6,69 +6,27 @@
 /*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:17:09 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/02/27 16:23:07 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:35:29 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_n_len(long nbr)
+int     print_ptr(uintptr_t ptr)
 {
-	int	count;
+	char	*base;
+	int		amount;
 
-	count = 0;
-	if (nbr < 0)
+	base = "0123456789abcdef";	//representación de los dígitos hexadecimales
+	amount = 0;	//cuenta los char que se escribirán
+	if (ptr < 16)	//si el valor pasado es inferior a su base, es decir = 16, se esta tratando con un solo dígito hexadecimal
+		amount += write(1, &base[ptr], 1);	//se escribe este dígito en la salida y el resultado se acumula en amount
+	else	//si por el contrario es mayor a 16, se hará una llamada recursiva de la función para ir diviendo por 16
 	{
-		nbr = -nbr;
-		count++;
+		amount += print_ptr(ptr / 16);	//se imprimen en orden correcto <=> de + significativo a menos
+		amount += write(1, &base[ptr % 16], 1);	//se escribe el resto de la división y también se acumula en amount
 	}
-	if (nbr == 0)
-		count++;
-	while (nbr != 0)
-	{
-		nbr /= 10;
-		count++;
-	}
-	return (count);
-}
-
-static char	*ft_mem_n(int len)
-{
-	char	*mem;
-
-	mem = malloc((len + 1) * sizeof(char));
-	if (!mem)
-		return (NULL);
-	mem[len] = '\0';
-	return (mem);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*str;
-	int		i;
-	int		len;
-	long	nbr;
-
-	nbr = n;
-	len = ft_n_len(nbr);
-	str = ft_mem_n(len);
-	if (str == NULL)
-		return (NULL);
-	if (nbr < 0)
-		nbr = -nbr;
-	i = len - 1;
-	if (nbr == 0)
-		str[i] = '0';
-	while (nbr != 0)
-	{
-		str[i] = ((nbr % 10) + 48);
-		nbr = nbr / 10;
-		i--;
-	}
-	if (n < 0)
-		str[0] = '-';
-	return (str);
+	return (amount);
 }
 
 int print_num(int x)
@@ -93,3 +51,6 @@ int print_num(int x)
 	}
     return (len);
 }
+
+int     print_unsigned(unsigned int n);
+int     print_hexadecimal(unsigned int hex, char *base);
