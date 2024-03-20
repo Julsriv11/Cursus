@@ -3,20 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jarias-i <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 19:16:48 by jarias-i          #+#    #+#              #
-#    Updated: 2024/01/09 19:20:59 by jarias-i         ###   ########.fr        #
+#    Updated: 2024/03/20 15:09:09 by juliaariasi      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 SRC = ft_printf.c \
-	ft_print_cs.c \
-	ft_printnum.c \
-	ft_print_unsigned.c \
-	ft_print_ptr.c \
-	ft_print_hex.c
+	ft_printf_more.c 
 OBJS = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra

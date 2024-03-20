@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:48:54 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/19 15:23:01 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:18:48 by juliaariasi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,32 @@
 
 #include "ft_printf.h"
 
-/*int	main(void)
+int	main(void)
 {
-	int	x;
-	int	y;
-	int num = 21;
-	void *ptr = malloc(10);
+	int		x;
+	int		y;
+	int 	num = 21;
+	char	*str = "Wingardium leviosa";
+	void	*ptr = malloc(10);
+	unsigned int	z = -40000;
 
-	x = ft_printf("Hola %d o %i o %s o %p\n", num, ptr );
-	y = printf("Hola %d o %i o %s o %p\n", num, ptr );
+	x = ft_printf("Hola %d o %u o %s o %p\n", num, z, str, ptr);
+	y = printf("Hola %d o %u o %s o %p\n", num, z, str, ptr);
 	free(ptr);
 	printf("Longitud de mi print %d y el original %d", x, y);
 	return 0;
-}*/
+}
 
-int	main(void)
+/* int	main(void)
 {
 	int	x;
 	int	y;
 	char *s = "testeo";
 
-	x = ft_printf("%s \n", s);
+	x = ft_printf("Hola %s \n", s);
 	y = printf("Hola %s \n", s);
 	return 0;
-}
+} */
 
 /* int	main(void)
 {

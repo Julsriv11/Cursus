@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:42:30 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/19 15:18:37 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:14:20 by juliaariasi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int print_str(char *s)
         write(1, "(null)", 6);
         return (6);
     }
-    if (s[len] != '\0')
+    while (s[len] != '\0')
     {
         write(1, &s[len], 1);
         len++;
@@ -50,11 +50,11 @@ int  ft_parameters(va_list args, int printlen, const char s)
 		printlen += print_ptr(va_arg(args, uintptr_t)) + 2;
 	}
     else if (s == 'u')
-		printlen += print_unsigned((va_arg(args, unsigned int), "0123456789"));
+		printlen += print_unsigned(va_arg(args, unsigned int));
     else if (s == 'x')
-		printlen += print_hexadecimal((va_arg(args, unsigned int), "0123456789abcdef"));
+		printlen += print_hexadecimal(va_arg(args, unsigned int), "0123456789abcdef");
 		else if (s == 'X')
-		printlen += print_hexadecimal((va_arg(args, unsigned int), "0123456789ABCDEF"));
+		printlen += print_hexadecimal(va_arg(args, unsigned int), "0123456789ABCDEF");
     else if (s == '%')
 		printlen += print_c('%');
     return (printlen);
@@ -74,14 +74,14 @@ int	ft_printf(char const *s, ...)
 	{
 		if (s[i] == '%' && s[i + 1] != '\0')
 		{
-			print = print + ft_parameters(args, print, s[i]);
 			i++;
+			print = ft_parameters(args, print, s[i]);
 		}
 		else if (s[i] == '%' && s[i + 1] == '\0')
 			return (0);
 		else 
 			print = print + print_c(s[i]);
-			i++;
+		i++;
 	}
 	va_end(args);
 	return (print);
