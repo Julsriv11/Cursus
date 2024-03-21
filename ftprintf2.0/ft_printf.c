@@ -6,7 +6,7 @@
 /*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:42:30 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/21 10:18:24 by jarias-i         ###   ########.fr       */
+/*   Updated: 2024/03/21 11:24:48 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	print_c(char c)
 
 int	 ft_parameters(va_list args, int printlen, const char s)
 {
-	if (s == 'c)
+	if (s == 'c')
 		printlen += print_c(va_arg(args, int));
 	else if (s == 'i' || s == 'd')
 		printlen += print_num(va_arg(args, int));
