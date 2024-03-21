@@ -3,61 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
+/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:42:30 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/20 15:14:20 by juliaariasi      ###   ########.fr       */
+/*   Updated: 2024/03/21 10:18:24 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_str(char *s)
+int	print_str(char *s)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    if (s == NULL)
-    {
-        write(1, "(null)", 6);
-        return (6);
-    }
-    while (s[len] != '\0')
-    {
-        write(1, &s[len], 1);
-        len++;
-    }   
-    return (len);
+	len = 0;
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (s[len] != '\0')
+	{
+		write(1, &s[len], 1);
+		len++;
+	}
+	return (len);
 }
 
-int print_c(char c)
+int	print_c(char c)
 {
-    write(1, &c, 1);
-    return (1);
+	write(1, &c, 1);
+	return (1);
 }
 
-int  ft_parameters(va_list args, int printlen, const char s)
+int	 ft_parameters(va_list args, int printlen, const char s)
 {
-	if (s == 'c')
-        printlen += print_c(va_arg(args, int));
-    else if (s == 'i' || s == 'd')
-        printlen += print_num(va_arg(args, int));
-    else if (s == 's')
-        printlen += print_str(va_arg(args, char *));
-    else if (s == 'p')
+	if (s == 'c)
+		printlen += print_c(va_arg(args, int));
+	else if (s == 'i' || s == 'd')
+		printlen += print_num(va_arg(args, int));
+	else if (s == 's')
+		printlen += print_str(va_arg(args, char *));
+	else if (s == 'p')
 	{
 		write(1, "0x", 2);
 		printlen += print_ptr(va_arg(args, uintptr_t)) + 2;
 	}
-    else if (s == 'u')
+	else if (s == 'u')
 		printlen += print_unsigned(va_arg(args, unsigned int));
-    else if (s == 'x')
+	else if (s == 'x')
 		printlen += print_hexadecimal(va_arg(args, unsigned int), "0123456789abcdef");
-		else if (s == 'X')
+	else if (s == 'X')
 		printlen += print_hexadecimal(va_arg(args, unsigned int), "0123456789ABCDEF");
     else if (s == '%')
 		printlen += print_c('%');
-    return (printlen);
+	return (printlen);
 }
 //me printea la longitud que reciba
 

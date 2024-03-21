@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+        */
+/*   By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:48:54 by jarias-i          #+#    #+#             */
-/*   Updated: 2024/03/20 15:18:48 by juliaariasi      ###   ########.fr       */
+/*   Updated: 2024/03/21 10:09:22 by jarias-i         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 #include "ft_printf.h"
 
-int	main(void)
+/* int	main(void)
 {
 	int		x;
 	int		y;
 	int 	num = 21;
 	char	*str = "Wingardium leviosa";
 	void	*ptr = malloc(10);
-	unsigned int	z = -40000;
+	unsigned int	z = 40000;
 
 	x = ft_printf("Hola %d o %u o %s o %p\n", num, z, str, ptr);
 	y = printf("Hola %d o %u o %s o %p\n", num, z, str, ptr);
 	free(ptr);
 	printf("Longitud de mi print %d y el original %d", x, y);
 	return 0;
-}
+} */
 
 /* int	main(void)
 {
@@ -40,8 +40,8 @@ int	main(void)
 	y = printf("Hola %s \n", s);
 	return 0;
 } */
-
-/* int	main(void)
+/* 
+int	main(void)
 {
 	int	size;
 
@@ -126,8 +126,8 @@ int	main(void)
 	printf("Size ft_printf: %d\n", size);
 
 	printf("\nCONVERSIÓN ERRONEA:\n");
-	//size = printf("Printf: %r\n", n);
-	//printf("Size Printf: %d\n", size);
+	// size = printf("Printf: %r\n", n);
+	// printf("Size Printf: %d\n", size);
 	size = ft_printf("ft_printf: %r\n", n);
 	printf("Size ft_printf: %d\n", size);
 

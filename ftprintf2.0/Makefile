@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juliaariasiniesta <juliaariasiniesta@st    +#+  +:+       +#+         #
+#    By: jarias-i <jarias-i@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 19:16:48 by jarias-i          #+#    #+#              #
-#    Updated: 2024/03/20 15:09:09 by juliaariasi      ###   ########.fr        #
+#    Updated: 2024/03/21 09:49:06 by jarias-i         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,6 @@ $(NAME): $(OBJS)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 all: $(NAME)
-
-%.o : %.c
-	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	@echo Archivos eliminados
